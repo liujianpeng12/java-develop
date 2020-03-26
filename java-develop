@@ -1,0 +1,126 @@
+00 jvm
+  JVM内存结构 VS Java内存模型 VS Java对象模型: http://www.hollischuang.com/archives/2509  http://www.hollischuang.com/archives/tag/jvm
+  深入理解Java内存模型: http://www.hollischuang.com/archives/1003
+  看完这篇垃圾回收，和面试官扯皮没问题了: https://mp.weixin.qq.com/s?__biz=MzI5MTU1MzM3MQ==&mid=2247483910&idx=1&sn=28134eb9eea657da0d54337d69230c29
+  垃圾回收-实战篇: https://mp.weixin.qq.com/s?__biz=MzU0OTE4MzYzMw==&mid=2247488197&idx=5&sn=8e8c9c9965237b57132bcedfdb60c175
+  万字精美图文，带你掌握 JVM 内存布局及细节分析:
+    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452969353&idx=1&sn=c3c5d9047446ddd32482d27aaf8aa5a7
+  深入理解G1垃圾收集器和GC日志:
+    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452967171&idx=1&sn=0f0ce04a68c93288c5b4045a359f39c3
+  JVM 发生 OOM 的 8 种原因、及解决办法:
+    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452967020&idx=1&sn=8026391a5fc1d66ec798ed7dd473a733
+  一次生产的JVM优化:
+    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452965745&idx=1&sn=f5fd2f33feb14c1d512294c304921716
+  从实际案例聊聊Java应用的GC优化:
+    https://tech.meituan.com/2017/12/29/jvm-optimize.html
+  jvm系列:
+    https://www.cnblogs.com/ityouknow/p/5603287.html
+  java命令学习系列:
+    http://www.hollischuang.com/archives/tag/java%e5%91%bd%e4%bb%a4%e5%ad%a6%e4%b9%a0%e7%b3%bb%e5%88%97
+
+01 java基础
+  https://www.cnblogs.com/xrq730/category/731394.html
+  抽象类和接口的定义以及区别:https://www.cnblogs.com/gyyyblog/p/11805696.html
+  Java8日期处理: https://mp.weixin.qq.com/s/XmTAfaCXMMveG4rde-3BQg
+
+02 集合
+  https://www.cnblogs.com/tong-yuan/tag/%E9%9B%86%E5%90%88/
+  https://www.cnblogs.com/dxflqm/tag/java%E9%9B%86%E5%90%88/
+
+
+03 多线程: Callable、FutureTask
+  https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648933285&idx=1&sn=f5507c251b84c3405f2fe0f7fb1da97d&chksm=88621b9bbf15928dd4c26f52b2abb0e130cde02100c432f33f0e90123b5e4b20d43017c1030e&token=1916804008&lang=zh_CN&scene=21#wechat_redirect
+  https://www.cnblogs.com/tong-yuan/tag/java/default.html?page=2
+  java多线程系列: https://www.cnblogs.com/-new/p/7234332.html
+  https://www.cnblogs.com/xrq730/category/733883.html
+  线程以及多线程开发:https://www.cnblogs.com/gyyyblog/p/11823842.html
+  https://www.cnblogs.com/takumicx/p/9307572.html
+  Semaphore、CyclicBarrier、Exchanger、CountDownLatch: https://www.jianshu.com/p/bb1dd7946087
+  Java并发编程系列: https://mp.weixin.qq.com/s/feZocJfW4CRoODISxlBaCQ
+
+04 IO
+
+05 socket
+
+06 JVM:  java动态追踪(Btrace、Arthas)
+  JVM 内存布局及细节分析: https://mp.weixin.qq.com/s/2twgui2arih2NQ9h-cAS8Q
+  JVM系列: https://www.cnblogs.com/ityouknow/p/5603287.html
+
+
+07 JSP/Servlet
+
+08 设计思想/模式:
+  用户层、应用层、业务层、数据访问层?
+  https://github.com/BillyYccc/DesignPatternsPrinciples
+  https://www.jianshu.com/p/c460295f9964
+  https://github.com/NoSuchClass/design_pattern/tree/master/src/principle
+
+09 算法
+   排序: https://www.cnblogs.com/fivestudy/p/10212306.html
+   LeetCode
+   RSA: 非对称加密: 公钥 私钥 可逆的
+   登录时解决加上时间进行非对称加密, 服务端解密并判断时间超过1分钟时些登录无效
+   微信支付数字签字--防止数据被篡改
+
+10 数据结构
+
+11 解决方案: 分布式事务、单点登录、支付、分布式ID方案
+   分布式事务: https://www.cnblogs.com/itsoku123/p/10919065.html
+   秒杀:https://www.cnblogs.com/aobing/p/11875385.html
+   服务器推送: 短轮询,长轮询,SSE(server-sent-events),websocket
+   高并发: https://mp.weixin.qq.com/s?__biz=MzU2MTI4MjI0MQ==&mid=2247488453&idx=2&sn=023887e2683df442886dc359bd942bc9
+   扫码登录的实现原理: https://mp.weixin.qq.com/s/UZ5JEhJpGQ-a1mDUhCitVQ
+
+12 组件(widget)
+
+13 spring: spring、springmvc、spring boot、spring cloud netfilx、spring cloud alibaba、service mesh
+
+14 数据库: mysql、mybatis、mycat、sharding sphere、
+  高性能MySQL 数据库设计规范: https://www.jianshu.com/p/cc80ff13693d
+  mysql: https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648933461&idx=1&sn=67cd31469273b68a258d963e53b56325&chksm=88621c6bbf15957d7308d81cd8ba1761b356222f4c6df75723aee99c265bd94cc869faba291c&token=1916804008&lang=zh_CN&scene=21#wechat_redirect
+  SQL注入: https://mp.weixin.qq.com/s/JYfkfEa1fiECPY93h9NS2w
+  一千行 MySQL 学习笔记: https://shockerli.net/post/1000-line-mysql-note/
+
+15 web服务: tomcat、nginx、
+
+16 分布式: zookeeper、dubbo、keeplived、lvs
+
+17 缓存: redis、mongodb
+
+18 消息队列: activemq、rabbitmq、rocketmq、kafka
+
+19 任务调试: quartz、elastic-job
+
+20 权限: shiro
+
+21 搜索: elasticsearch
+
+22 日志: logstash、kibana ?、elk?
+
+23 测试: 
+
+24 构建: maven、gradle
+   maven: https://www.cnblogs.com/itsoku123/p/11910462.html
+
+25 代码管理: git、gitlab
+
+26 可持续集成: jenkins、
+
+27 应用部署: 蓝绿部署、滚动部署、灰度发布
+
+28 系统监控: prometheus、grafana
+
+29 容器: docker、kubernetes
+
+30 服务器: centos
+
+31 网络: 
+
+32 系统设计
+  支付设计: https://www.cnblogs.com/mfwtech/p/11138011.html
+  https://www.cnblogs.com/mfwtech/tag/%E9%A9%AC%E8%9C%82%E7%AA%9D/
+
+
+
+
+IntelliJ IDEA 最常用配置详细图解: https://mp.weixin.qq.com/s/_v6e5rc9Lh5SleCZfGKwsw
