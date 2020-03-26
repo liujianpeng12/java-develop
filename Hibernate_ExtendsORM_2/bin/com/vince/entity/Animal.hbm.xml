@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+	<!-- 继承关系映射-根类映射一个表(只生成一个表) -->
+	<class name="Animal" table="Animal_2">
+		<id name="id" column="Id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 表示子类的类型 :必须放在 peroperty之前-->
+		<discriminator column="Type" type="string"></discriminator>
+		
+		<property name="name" column="Name"></property>
+		<property name="age" column="Age"></property>		
+		
+		<!-- Cat子类 -->
+		<subclass name="Cat" discriminator-value="Cat">
+			<property name="catProperty" column="CatProperty"></property>
+		</subclass>
+		
+		<!-- Dog子类 -->
+		<subclass name="com.vince.entity.Dog" discriminator-value="Dog">
+			<property name="dogProperty" column="dogProperty"></property>
+		</subclass>
+	</class>    
+
+</hibernate-mapping>

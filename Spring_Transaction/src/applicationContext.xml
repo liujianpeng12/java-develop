@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+
+	<!-- 读取属性文件配置方法一 -->
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!--读取属性文件配置方法二 -->
+	<!-- <context:property-placeholder location="classpath:db.properties"/> -->
+	
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.usernanme}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="maxActive" value="${jdbc.maxActive}"></property>
+		<property name="minIdle" value="${jdbc.minIdle}"></property>
+	</bean>
+
+	<!-- 使用spring提供SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" destroy-method="destroy">
+		<!-- 绑定hibernate配置文件：我们把数据源，映文件，hibernate相关的配置项 -->
+		<!-- <property name="configLocation"> <value>classpath:hibernate.cfg.xml</value> 
+			</property> -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 配置hibernate映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/jdbc/entity/User.hbm.xml</value>
+			</list>
+		</property>
+		<!-- 配置hibernate相关配置项 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 事务管理 -->
+	<!-- jdbc事务管理器 -->
+	<!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>-->
+	<!-- hibernate事务管理器 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 打开事务管理的注解支持 -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+
+	<!-- 使用Spring 提供的HibernateTemplate 操作数据库 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<constructor-arg ref="sessionFactory"></constructor-arg>
+	</bean>
+
+	<bean id="userDao" class="com.jdbc.dao.impl.UserDaoHibernateImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="userService" class="com.jdbc.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="userService2" class="com.jdbc.service.impl.UserServiceImpl2">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<!-- 以XML配置方式声明事务管理 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="list" read-only="true" propagation="NOT_SUPPORTED"/>
+			<tx:method name="findById" read-only="true" propagation="NOT_SUPPORTED"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.jdbc.service.impl.*.*(..))" id="serviceCut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceCut"/>
+	</aop:config>
+
+
+</beans>
+
+
+
+

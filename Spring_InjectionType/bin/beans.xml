@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Middle tier application context definition for the image database.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 
+		依赖注入三种方式:接口注入,setter方法注入和构造器注入
+	 -->
+	 
+	<!-- 接口注入 -->
+	<bean id="animalService" class="com.vince.service.impl.Dog">
+		<!-- 
+			setter方法注入:表示要为com.vince.service.impl.Dog类中的dao属性注入,其代码中需要有setter方法
+			dao 为属性名,beanDao为其他配置好的bean
+		 -->
+		<property name="dao" ref="beanDao"></property>
+		
+		<!-- 
+			构造器注入:logDao为其他配置好的bean
+		 -->
+		<constructor-arg ref="logDao"></constructor-arg>
+	</bean>
+	<bean id="beanDao" class="com.vince.dao.impl.BeanDaoImpl"></bean>
+	<bean id="logDao" class="com.vince.dao.impl.LogDaoImpl"></bean>
+</beans>

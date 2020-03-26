@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+
+	<class name="User" table="User">
+		<id name="id" column="Id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="Name"></property>
+		<property name="age" column="Age"></property>
+		<!-- 
+			一对多
+			cascade表示级联操作(默认none,save-update,delete,all)
+			inverse:对象关系维护,true:从对象维护,false:主对象维护
+			lazy:延迟加载,true:查询主对象时不查询从对象,false:查询主对象时查询从对象
+		 -->
+		<set name="articles" table="Article" cascade="all" inverse="true" lazy="true">
+			<key column="user_id"></key>
+			<one-to-many class="Article"/>
+		</set>
+	</class>
+
+</hibernate-mapping>

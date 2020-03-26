@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+	
+	<class name="IdCard" table="IdCard">
+		<!-- IdCard是从对象,其id参考主对象的id,即从对象的id与主对象的id一样 -->
+		<id name="id" column="Id">
+			<!-- foreign表示外键, "param"配置表示参考(property)"person"属性-->
+			<generator class="foreign">
+				<param name="property">person</param>
+			</generator>
+		</id>
+		
+		<property name="number" column="Number"></property>
+		<!-- 一对一配置:共享主键方式 
+			constrained:外键约束
+		 -->
+		<one-to-one name="person" constrained="true"></one-to-one>
+	</class>
+	
+</hibernate-mapping>

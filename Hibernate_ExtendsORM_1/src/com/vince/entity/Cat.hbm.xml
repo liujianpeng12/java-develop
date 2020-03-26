@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+
+	<class name="Cat" table="Cat_1">
+		<id name="id" column="Id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="Name"></property>
+		<property name="age" column="Age"></property>
+		<property name="catProperty" column="CatProperty"></property>
+	</class>    
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+
+	<class name="Zoom" table="Zoom">
+		<id name="id" column="Id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="Name"></property>
+		
+		<!-- 组件关系映射 -->
+		<component name="address">
+			<property name="location" column="Location"></property>
+			<property name="number" column="Number"></property>
+		</component>
+	</class>
+
+</hibernate-mapping>

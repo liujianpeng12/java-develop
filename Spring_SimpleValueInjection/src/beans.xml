@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Middle tier application context definition for the image database.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 
+		简单值注入:需要有setter方法 
+		bean的name属性:表示别名,在有特殊字符时可以使用,如 /, strtus1中有特殊字符/
+		bean的id属性:不能使用特殊字符
+	-->
+	<bean id="studentBean" class="com.bean.Student">
+		<property name="name" value="小明"></property>
+		<property name="age" value="20"></property>
+		<property name="sex" value="男"></property>
+	</bean>
+	
+	<!-- 集合注入 -->
+	<bean id="collectionBean" class="com.bean.CollectionBean">
+		<property name="list">
+			<list>
+				<value>list1</value>
+				<value>list2</value>
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="1" value="map1"></entry>
+				<entry key="2" value="map2"></entry>
+			</map>
+		</property>
+		<property name="set">
+			<set>
+				<value>set1</value>
+				<value>set2</value>
+			</set>
+		</property>
+		<property name="props">
+			<props>
+				<prop key="name">小明</prop>
+				<prop key="age">21</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

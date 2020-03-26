@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	
+    <package name="default" namespace="/" extends="struts-default">
+		<action name="MyAction1" class="com.vince.MyAction1">
+			<result>success.jsp</result>
+		</action>
+		<action name="MyAction2" class="com.vince.MyAction2">
+			<result>success.jsp</result>
+		</action>
+		<action name="MyAction3" class="com.vince.MyAction3">
+			<result>success.jsp</result>
+		</action>
+    </package>
+
+    <!-- Add packages here -->
+
+</struts>

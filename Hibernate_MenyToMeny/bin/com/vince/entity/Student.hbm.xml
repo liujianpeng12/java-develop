@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+	<!-- 关联关系映射-多对多映射 -->
+	<class name="Student" table="Student_T2">
+		<id name="id" column="Id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="Name"></property>
+		
+		<set name="teachers" table="Teacher_Student" cascade="all">
+			<key column="sid"></key>
+			<many-to-many class="Teacher" column="tid"></many-to-many>
+		</set>
+	</class>
+
+</hibernate-mapping>

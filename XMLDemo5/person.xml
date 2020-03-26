@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="com.vince.xml.Teacher">
+  <void property="age">
+   <int>30</int>
+  </void>
+  <void property="id">
+   <int>10</int>
+  </void>
+  <void property="name">
+   <string>teacher黄</string>
+  </void>
+ </object>
+</java>

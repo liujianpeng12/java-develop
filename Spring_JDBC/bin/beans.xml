@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- spring 提供的数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/test"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	
+	<!-- Spring提供的JdbcTemplate模板类 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>	
+	<bean id="personDao" class="com.vince.dao.impl.PersonDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
+	<!-- Spring提供的NamedParameterJdbcTemplate模板类 -->
+	<bean id="nameParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSource"></constructor-arg>
+	</bean>
+	<bean id="personDao2" class="com.vince.dao.impl.PersonDaoImpl2">
+		<property name="jdbcTemplate" ref="nameParameterJdbcTemplate"></property>
+	</bean>
+	
+	<!-- Spring提供的NamedParameterJdbcTemplate模板类 -->
+	<bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+		<constructor-arg ref="dataSource"></constructor-arg>
+	</bean>
+	<bean id="personDao3" class="com.vince.dao.impl.PersonDaoImpl3">
+		<property name="jdbcTemplate" ref="simpleJdbcTemplate"></property>
+	</bean>
+	
+</beans>

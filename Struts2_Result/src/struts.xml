@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+    	
+    	<action name="dispatcherAction" class="com.vince.action.DispatcherActionResult" >
+    		<!-- dispatcher结果类型:请求转发(使用同一个请求对象),是struts2的默认类型 -->
+    		<result name="dispatcher-success" type="dispatcher">dispatcherSuccess.jsp</result>
+    	</action>
+    	
+    	<action name="redirectAction" class="com.vince.action.RedirectActionResult">
+    		<!-- redirect类型:重定向到一个资源 -->
+    		<result name="redirect-success" type="redirect">
+    			<param name="location">redirectSuccess.jsp?name=${name}</param>
+    			<!-- 是否支持OGNL表达式 -->
+    			<param name="parse">true</param>
+   			</result>
+    	</action>
+    	
+    	<action name="redirectActionAction" class="com.vince.action.RedirectActionActionResult">
+    		<!-- redirectAction结果类型:重定向到一个Action -->
+    		<result name="redirectAction-success" type="redirectAction">
+    			<!-- Action名 -->
+    			<param name="actionName">redirectActionTarget</param>
+    			<param name="namespace">/</param>
+    		</result>
+    	</action>
+    	<action name="redirectActionTarget">
+    		<result>redirectActionSuccess.jsp</result>
+    	</action>
+    </package>
+
+</struts>

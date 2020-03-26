@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+     <package name="default" namespace="/" extends="struts-default">
+    	
+    	<action name="emp_*" class="com.vince.action.EmpAction" method="{1}">
+    		<result name="list">/WEB-INF/list.jsp</result>
+    		<result name="list-action" type="redirectAction">emp_list</result>
+    		<result name="update">/WEB-INF/update.jsp</result>
+    		<result name="doAdd">/WEB-INF/add.jsp</result>
+    	</action>
+    	
+    </package>
+
+</struts>

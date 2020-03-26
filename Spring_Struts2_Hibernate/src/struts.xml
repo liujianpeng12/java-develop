@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    
+    <!-- 把Action对象的创建与管理交由spring窗口 -->
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <constant name="struts.action.extension" value="action"></constant>
+    
+    <package name="ssh" namespace="/" extends="struts-default">
+    	
+    	<global-results>
+    		<result name="error">/error.jsp</result>
+    	</global-results>
+    	
+    	<action name="emp_*" class="com.vince.web.action.EmpAction" method="{1}">
+    		<interceptor-ref name="paramsPrepareParamsStack"></interceptor-ref>
+    		<result name="list-success">/WEB-INF/list.jsp</result>
+    		<result name="list" type="redirectAction">emp_list</result>
+    		<result name="add">/WEB-INF/add.jsp</result>
+    		<result name="modify">/WEB-INF/modify.jsp</result>
+    	</action>
+    
+    </package>
+
+</struts>

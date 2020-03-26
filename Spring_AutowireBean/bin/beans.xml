@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Middle tier application context definition for the image database.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 
+		自动装配bean(了解): 指自动装类中的变量,通过指定autowire属性,默认为关闭的
+		1.根据命名: byName
+		2.根据类型: byType
+			查询属性类型匹配的bean,如果有多个将装配失败
+		3.根据构造器: constructor
+			查询属性类型匹配的bean,如果有多个将装配失败
+			试图最大数量的匹配构造器中包含的参数
+		4.自动检查: autodetect
+			在构造器自动装配和通过类型的自动装配间进行选择
+	 -->
+ 	<bean id="serviceBean" class="com.bean.ServiceBean" autowire="autodetect">
+	 	<!-- 手动装配
+	 	<property name="daoBean" ref="daoBean"></property>
+	 	 -->
+ 	</bean>
+ 	<bean id="daoBean" class="com.bean.DaoBean"></bean>
+ 	<bean id="daoBean2" class="com.bean.DaoBean2"></bean>
+</beans>

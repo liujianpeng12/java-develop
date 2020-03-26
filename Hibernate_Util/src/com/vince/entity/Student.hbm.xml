@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+
+    <class name="Student" table="Student_Table" dynamic-update="true">
+        <id name="id" column="id">
+        	<generator class="native"></generator>
+        </id>
+        <property name="name" column="Name" not-null="true"></property>
+        <property name="sex" column="Sex"></property>
+        <property name="age" column="Age"></property>
+        <property name="phone" column="Phone"></property>
+    </class>
+
+</hibernate-mapping>

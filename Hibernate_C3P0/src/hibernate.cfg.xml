@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory name="sessionFactory">
+		<!-- 数据库连接 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>		
+		<!-- C3P0连接池 -->
+	  	<!--
+			<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		-->
+		<!-- Disable the second-level cache  -->
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		<!-- 最大连接数 -->
+		<property name="hibernate.C3P0.max_size">20</property>
+		<!-- 最小连接数 -->
+		<property name="hibernate.C3P0.min_size">5</property>
+		<property name="hibernate.C3P0.timeout">120</property>
+		<!-- 数据库连接池能维护的最多的 Statement 数量 -->
+		<property name="hibernate.C3P0.max_statements">100</property>
+		<property name="hibernate.C3P0.idle_test_period">120</property>
+		<!-- 数据库连接池一次向数据库要多少个连接 -->
+		<property name="hibernate.C3P0.acquire_increment">5</property>
+		
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<mapping resource="com/vince/entity/User.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

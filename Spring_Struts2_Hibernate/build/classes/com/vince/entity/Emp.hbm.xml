@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+
+	<class name="Emp" table="Emp">
+		<!-- 配置使用缓存 -->
+		<cache usage="read-write"/>
+		<id name="id" column="Id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="Name"></property>
+		<property name="age" column="Age"></property>
+		<property name="salary" column="Salary"></property>
+	</class>
+
+</hibernate-mapping>

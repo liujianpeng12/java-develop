@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+	<bean id="serviceBean" class="com.bean.ServiceBean"></bean>
+	<!-- 前置通知 -->
+	<bean id="serviceBeanMethodBeforeAdvice" class="com.bean.ServiceBeanMethodBeforeAdvice"></bean>
+	<!-- 后置通知 -->
+	<bean id="serviceBeanAfterReturningAdvice" class="com.bean.ServiceBeanAfterReturningAdvice"></bean>
+	<!-- 环绕通知 -->
+	<bean id="serviceBeanMethodInterceptor" class="com.bean.ServiceBeanMethodInterceptor"></bean>
+	
+	<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		
+		<!-- 目标代理对象 -->
+		<property name="target">
+			<ref bean="serviceBean"/>
+		</property>
+		
+		<!-- 拦截器对象 -->
+		<property name="interceptorNames">
+			<list>
+				<!--  
+				<value>serviceBeanMethodBeforeAdvice</value>
+				<value>serviceBeanAfterReturningAdvice</value>
+				-->
+				<value>serviceBeanMethodInterceptor</value>
+			</list>
+		</property>
+		
+	</bean>
+	
+	
+</beans>

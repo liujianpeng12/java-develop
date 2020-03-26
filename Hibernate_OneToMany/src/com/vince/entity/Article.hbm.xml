@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.vince.entity">
+	
+	<class name="Article" table="Article">
+		<id name="id" column="Id">
+			<generator class="native">
+			</generator>
+		</id>
+		
+		<property name="title" column="Title"></property>
+		<property name="content" column="Content"></property>
+		
+		<!-- 
+			一对多
+			添加fetch="join"时查询从对象时会同时查询主对象,否则不会查询主对象
+		 -->
+		<many-to-one name="user" column="user_id" fetch="join" ></many-to-one>
+	</class>
+	
+</hibernate-mapping>
