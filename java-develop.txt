@@ -1,22 +1,3 @@
-00 jvm
-  JVM内存结构 VS Java内存模型 VS Java对象模型: http://www.hollischuang.com/archives/2509  http://www.hollischuang.com/archives/tag/jvm
-  深入理解Java内存模型: http://www.hollischuang.com/archives/1003
-  看完这篇垃圾回收，和面试官扯皮没问题了: https://mp.weixin.qq.com/s?__biz=MzI5MTU1MzM3MQ==&mid=2247483910&idx=1&sn=28134eb9eea657da0d54337d69230c29
-  垃圾回收-实战篇: https://mp.weixin.qq.com/s?__biz=MzU0OTE4MzYzMw==&mid=2247488197&idx=5&sn=8e8c9c9965237b57132bcedfdb60c175
-  万字精美图文，带你掌握 JVM 内存布局及细节分析:
-    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452969353&idx=1&sn=c3c5d9047446ddd32482d27aaf8aa5a7
-  深入理解G1垃圾收集器和GC日志:
-    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452967171&idx=1&sn=0f0ce04a68c93288c5b4045a359f39c3
-  JVM 发生 OOM 的 8 种原因、及解决办法:
-    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452967020&idx=1&sn=8026391a5fc1d66ec798ed7dd473a733
-  一次生产的JVM优化:
-    https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452965745&idx=1&sn=f5fd2f33feb14c1d512294c304921716
-  从实际案例聊聊Java应用的GC优化:
-    https://tech.meituan.com/2017/12/29/jvm-optimize.html
-  jvm系列:
-    https://www.cnblogs.com/ityouknow/p/5603287.html
-  java命令学习系列:
-    http://www.hollischuang.com/archives/tag/java%e5%91%bd%e4%bb%a4%e5%ad%a6%e4%b9%a0%e7%b3%bb%e5%88%97
 
 01 java基础
   https://www.cnblogs.com/xrq730/category/731394.html
@@ -45,6 +26,24 @@
 06 JVM:  java动态追踪(Btrace、Arthas)
   JVM 内存布局及细节分析: https://mp.weixin.qq.com/s/2twgui2arih2NQ9h-cAS8Q
   JVM系列: https://www.cnblogs.com/ityouknow/p/5603287.html
+  JVM内存结构 VS Java内存模型 VS Java对象模型: http://www.hollischuang.com/archives/2509  http://www.hollischuang.com/archives/tag/jvm
+  深入理解Java内存模型: http://www.hollischuang.com/archives/1003
+  看完这篇垃圾回收，和面试官扯皮没问题了: https://mp.weixin.qq.com/s?__biz=MzI5MTU1MzM3MQ==&mid=2247483910&idx=1&sn=28134eb9eea657da0d54337d69230c29
+  垃圾回收-实战篇: https://mp.weixin.qq.com/s?__biz=MzU0OTE4MzYzMw==&mid=2247488197&idx=5&sn=8e8c9c9965237b57132bcedfdb60c175
+  万字精美图文，带你掌握 JVM 内存布局及细节分析:
+      https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452969353&idx=1&sn=c3c5d9047446ddd32482d27aaf8aa5a7
+  深入理解G1垃圾收集器和GC日志:
+      https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452967171&idx=1&sn=0f0ce04a68c93288c5b4045a359f39c3
+  JVM 发生 OOM 的 8 种原因、及解决办法:
+      https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452967020&idx=1&sn=8026391a5fc1d66ec798ed7dd473a733
+  一次生产的JVM优化:
+      https://mp.weixin.qq.com/s?__biz=MzA3MTUzOTcxOQ==&mid=2452965745&idx=1&sn=f5fd2f33feb14c1d512294c304921716
+  从实际案例聊聊Java应用的GC优化:
+      https://tech.meituan.com/2017/12/29/jvm-optimize.html
+  jvm系列:
+      https://www.cnblogs.com/ityouknow/p/5603287.html
+  java命令学习系列:
+      http://www.hollischuang.com/archives/tag/java%e5%91%bd%e4%bb%a4%e5%ad%a6%e4%b9%a0%e7%b3%bb%e5%88%97
 
 
 07 JSP/Servlet
