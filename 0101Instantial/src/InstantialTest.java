@@ -8,13 +8,13 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 
 /**
- * ÂÛÊµÀı»¯Ò»¸öÀàµÄ·½Ê½
- * £¨1£©Í¨¹ı¹¹Ôì·½·¨ÊµÀı»¯Ò»¸öÀà
- * £¨2£©Í¨¹ıClassÊµÀı»¯Ò»¸öÀà
- * £¨3£©Í¨¹ı·´ÉäÊµÀı»¯Ò»¸öÀà
- * £¨4£©Í¨¹ı¿ËÂ¡ÊµÀı»¯Ò»¸öÀà
- * £¨5£©Í¨¹ı·´ĞòÁĞ»¯ÊµÀı»¯Ò»¸öÀà
- * £¨6£©Í¨¹ıUnsafeÊµÀı»¯Ò»¸öÀà
+ * è®ºå®ä¾‹åŒ–ä¸€ä¸ªç±»çš„æ–¹å¼
+ * ï¼ˆ1ï¼‰é€šè¿‡æ„é€ æ–¹æ³•å®ä¾‹åŒ–ä¸€ä¸ªç±»
+ * ï¼ˆ2ï¼‰é€šè¿‡Classå®ä¾‹åŒ–ä¸€ä¸ªç±»
+ * ï¼ˆ3ï¼‰é€šè¿‡åå°„å®ä¾‹åŒ–ä¸€ä¸ªç±»
+ * ï¼ˆ4ï¼‰é€šè¿‡å…‹éš†å®ä¾‹åŒ–ä¸€ä¸ªç±»
+ * ï¼ˆ5ï¼‰é€šè¿‡ååºåˆ—åŒ–å®ä¾‹åŒ–ä¸€ä¸ªç±»
+ * ï¼ˆ6ï¼‰é€šè¿‡Unsafeå®ä¾‹åŒ–ä¸€ä¸ªç±»
  *
  */
 public class InstantialTest {
@@ -31,17 +31,17 @@ public class InstantialTest {
             e.printStackTrace();
         }
     }
-    
+
     public static void main(String[] args) throws Exception {
-        // 1. ¹¹Ôì·½·¨
+        // 1. æ„é€ æ–¹æ³•
         User user1 = new User();
-        // 2. Class£¬ÀïÃæÊµ¼ÊÒ²ÊÇ·´Éä
+        // 2. Classï¼Œé‡Œé¢å®é™…ä¹Ÿæ˜¯åå°„
         User user2 = User.class.newInstance();
-        // 3. ·´Éä
+        // 3. åå°„
         User user3 = User.class.getConstructor().newInstance();
-        // 4. ¿ËÂ¡
+        // 4. å…‹éš†
         User user4 = (User) user1.clone();
-        // 5. ·´ĞòÁĞ»¯
+        // 5. ååºåˆ—åŒ–
         User user5 = unserialize(user1);
         // 6. Unsafe
         User user6 = (User) unsafe.allocateInstance(User.class);
@@ -60,7 +60,7 @@ public class InstantialTest {
         oos.close();
 
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D://object.txt"));
-        // ·´ĞòÁĞ»¯
+        // ååºåˆ—åŒ–
         User user5 = (User) ois.readObject();
         ois.close();
         return user5;
