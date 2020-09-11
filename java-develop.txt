@@ -1,6 +1,7 @@
 
 00 java多线
   https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=Mzg2ODA0ODM0Nw==&scene=1&album_id=1416811206647824387
+  https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2ODA0ODM0Nw==&action=getalbum&album_id=1415038345180430336&scene=173#wechat_redirect
 
 01 java基础
   equqls、hashcode: https://www.cnblogs.com/ysocean/p/8419559.html

@@ -4,25 +4,25 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 
+ *
  */
 public class Counter2 {
     public static AtomicInteger num = new AtomicInteger(0);
-    //Ê¹ÓÃCountDownLatchÀ´µÈ´ı¼ÆËãÏß³ÌÖ´ĞĞÍê
+    //ä½¿ç”¨CountDownLatchæ¥ç­‰å¾…è®¡ç®—çº¿ç¨‹æ‰§è¡Œå®Œ
     static CountDownLatch countDownLatch = new CountDownLatch(30);
     public static void main(String []args) throws InterruptedException {
-        //¿ªÆô30¸öÏß³Ì½øĞĞÀÛ¼Ó²Ù×÷
+        //å¼€å¯30ä¸ªçº¿ç¨‹è¿›è¡Œç´¯åŠ æ“ä½œ
         for(int i=0;i<30;i++){
             new Thread(){
                 public void run(){
                     for(int j=0;j<10000;j++){
-                    	num.incrementAndGet();//Ô­×ÓĞÔµÄnum++,Í¨¹ıÑ­»·CAS·½Ê½
+                        num.incrementAndGet();//åŸå­æ€§çš„num++,é€šè¿‡å¾ªç¯CASæ–¹å¼
                     }
                     countDownLatch.countDown();
                 }
             }.start();
         }
-        //µÈ´ı¼ÆËãÏß³ÌÖ´ĞĞÍê
+        //ç­‰å¾…è®¡ç®—çº¿ç¨‹æ‰§è¡Œå®Œ
         countDownLatch.await();
         System.out.println(num);
     }
