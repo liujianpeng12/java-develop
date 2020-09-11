@@ -3,7 +3,10 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * LinkedHashSet 输入输出有序
+ * LinkedHashSet继承自HashSet，它的添加、删除、查询等方法都是直接用的HashSet的，唯一的不同就是它使用LinkedHashMap存储元素。
+ *
+ * （1）LinkedHashSet的底层使用LinkedHashMap存储元素。
+ * （2）LinkedHashSet是有序的，它是按照插入的顺序排序的。
  */
 public class LinkedHashSetTest {
     public static void main(String[] args) {
