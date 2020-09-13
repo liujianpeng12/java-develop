@@ -104,7 +104,7 @@ class Counter {
         int before = count;
         // 失败了就重试直到成功为止
         //通过调用Unsafe的compareAndSwapInt()方法来尝试更新之前获取到的count的值，如果它没有被其它线程更新过，则更新成功，否则不断重试直到成功为止。
-        while(!unsafe.compareAndSwapInt(this, offset,before,before + 1)) {
+        while(!unsafe.compareAndSwapInt(this, offset, before,before + 1)) {
             before = count;
         }
     }
