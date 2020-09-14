@@ -1,15 +1,15 @@
 package com0307Synchronized01;
 /**
- * ÔÚ¶àÏß³ÌµÄ²Ù×÷ÖÐ,¶à¸öÏß³ÌÓÐ¿ÉÄÜÍ¬Ê±´¦ÀíÍ¬Ò»¸ö×ÊÔ´,Õâ¾ÍÊÇ¶àÏß³ÌµÄ¹²ÏíÊý¾Ý 
- * Ïß³ÌÍ¬²½: 
- * 1.Ïß³Ì²»°²È«:¶àÏß³Ì¹²ÏíÒ»¸öÊý¾ÝÊ±,½«µ¼ÖÂÊý¾ÝÖµµÄ´íÎó½á¹û
- * 2.Ê¹ÓÃÍ¬²½·½·¨½â¾öÏß³Ì²»°²È«µÄÎÊÌâ
- * 	1)Í¬²½´úÂë¿é
- * 	2)Í¬²½·½·¨
- * 3.Í¬²½´úÂëÓ¦¾¡Á¿¼ò½à,°Ñ°²È«ÐÔÃ»ÓÐ¸ù¾Ý´úÂëÒÆ³öÍ¬²½¿é
- * 4.Í¬²½·½·¨Í¬²½µÄÊÇµ±Ç°¶ÔÏó,ÄÇÃ´µ±Í¬²½·½·¨±»µ÷ÓÃÊ±,¸Ã¶ÔÏóµÄÆäËûÍ¬²½·½·¨¶¼½«µÈ´ý¶ÔÏóËø 
- * 5.Í¬²½´úÂë»á´øÀ´ÐÔÄÜ½µµÍÎÊÌâ,Í¬²½Ô½¶àÐÔÄÜÔ½µÍ,»¹¿ÉÄÜÔì³ÉËÀËø
- * 6.Í¬²½´úÂëÊÇÒÔÎþÉüÐÔÄÜ»»À´Êý¾Ý°²È«
+ * åœ¨å¤šçº¿ç¨‹çš„æ“ä½œä¸­,å¤šä¸ªçº¿ç¨‹æœ‰å¯èƒ½åŒæ—¶å¤„ç†åŒä¸€ä¸ªèµ„æº,è¿™å°±æ˜¯å¤šçº¿ç¨‹çš„å…±äº«æ•°æ®
+ * çº¿ç¨‹åŒæ­¥:
+ * 1.çº¿ç¨‹ä¸å®‰å…¨:å¤šçº¿ç¨‹å…±äº«ä¸€ä¸ªæ•°æ®æ—¶,å°†å¯¼è‡´æ•°æ®å€¼çš„é”™è¯¯ç»“æžœ
+ * 2.ä½¿ç”¨åŒæ­¥æ–¹æ³•è§£å†³çº¿ç¨‹ä¸å®‰å…¨çš„é—®é¢˜
+ * 	1)åŒæ­¥ä»£ç å—
+ * 	2)åŒæ­¥æ–¹æ³•
+ * 3.åŒæ­¥ä»£ç åº”å°½é‡ç®€æ´,æŠŠå®‰å…¨æ€§æ²¡æœ‰æ ¹æ®ä»£ç ç§»å‡ºåŒæ­¥å—
+ * 4.åŒæ­¥æ–¹æ³•åŒæ­¥çš„æ˜¯å½“å‰å¯¹è±¡,é‚£ä¹ˆå½“åŒæ­¥æ–¹æ³•è¢«è°ƒç”¨æ—¶,è¯¥å¯¹è±¡çš„å…¶ä»–åŒæ­¥æ–¹æ³•éƒ½å°†ç­‰å¾…å¯¹è±¡é”
+ * 5.åŒæ­¥ä»£ç ä¼šå¸¦æ¥æ€§èƒ½é™ä½Žé—®é¢˜,åŒæ­¥è¶Šå¤šæ€§èƒ½è¶Šä½Ž,è¿˜å¯èƒ½é€ æˆæ­»é”
+ * 6.åŒæ­¥ä»£ç æ˜¯ä»¥ç‰ºç‰²æ€§èƒ½æ¢æ¥æ•°æ®å®‰å…¨
  */
 public class ThreadDemo1 {
 
@@ -39,13 +39,13 @@ public class ThreadDemo1 {
 }
 
 class MyThread implements Runnable {
-	int num = 10;//³ÉÔ±±äÁ¿, ¶àÏß³Ì¶ÔÍ¬Ò»ÊµÀý¹²Ïí³ÉÔ±±äÁ¿
+	int num = 10;//æˆå‘˜å˜é‡, å¤šçº¿ç¨‹å¯¹åŒä¸€å®žä¾‹å…±äº«æˆå‘˜å˜é‡
 	Object obj = new Object();
 
 	@Override
 	public void run() {
 		for (int i = 0; i < 50; i++) {
-			// Í¬²½´úÂë¿é
+			// åŒæ­¥ä»£ç å—
 			synchronized (obj) {
 				if (num > 0) {
 					System.out.println(Thread.currentThread().getName() + "--" + num);
@@ -73,7 +73,7 @@ class MyThread2 implements Runnable {
 	}
 
 	/**
-	 * Í¬²½·½·¨
+	 * åŒæ­¥æ–¹æ³•
 	 */
 	public synchronized void method() {
 		if (num > 0) {

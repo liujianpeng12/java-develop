@@ -1,7 +1,7 @@
 package com0307Synchronized01;
 
 /**
- * Á½¸öÏß³Ì·ÃÎÊÍ¬Ò»¸ö¶ÔÏóµÄÁ½¸öÍ¬²½´úÂë¿é(synchronized·½·¨»òsynchronized(Í¬Ò»¶ÔÏó))£¬ÕâÁ½¸ö´úÂë¿éÊÇÍ¬²½Ö´ĞĞµÄ
+ * ä¸¤ä¸ªçº¿ç¨‹è®¿é—®åŒä¸€ä¸ªå¯¹è±¡çš„ä¸¤ä¸ªåŒæ­¥ä»£ç å—(synchronizedæ–¹æ³•æˆ–synchronized(åŒä¸€å¯¹è±¡))ï¼Œè¿™ä¸¤ä¸ªä»£ç å—æ˜¯åŒæ­¥æ‰§è¡Œçš„
  *
  */
 public class ThreadDemo3 {
@@ -13,7 +13,7 @@ public class ThreadDemo3 {
 		t1.start();
 		t2.start();
 	}
-	
+
 }
 
 class MyThread3 extends Thread{
@@ -21,7 +21,7 @@ class MyThread3 extends Thread{
 	public MyThread3(Service2 s){
 		this.s = s;
 	}
-	
+
 	@Override
 	public void run() {
 		s.service1();
@@ -33,7 +33,7 @@ class MyThread4 extends Thread{
 	public MyThread4(Service2 s){
 		this.s = s;
 	}
-	
+
 	@Override
 	public void run() {
 		s.service2();
@@ -46,7 +46,7 @@ class Service2{
 			System.out.println(Thread.currentThread().getName() + ":" + i);
 		}
 	}
-	
+
 	public synchronized void service2(){
 		for (int i = 0; i < 5; i++) {
 			System.out.println(Thread.currentThread().getName() + ":" + i);

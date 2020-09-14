@@ -1,7 +1,7 @@
 package com0307Synchronized01;
 
 /**
- * 两个线程访问同一个对象的两个同步代码块synchronized(不同对象)时，这两个代码块是异步执行的
+ * 涓や釜绾跨▼璁块棶鍚屼竴涓璞＄殑涓や釜鍚屾浠ｇ爜鍧梥ynchronized(涓嶅悓瀵硅薄)鏃讹紝杩欎袱涓唬鐮佸潡鏄紓姝ユ墽琛岀殑
  *
  */
 public class ThreadDemo4 {

@@ -2,7 +2,7 @@ package com0307Synchronized01;
 
 public class ThreadDemo5 {
 
-	public static final Object lock = new Object();
+    public static final Object lock = new Object();
 
     // 锁的是ThreadDemo5.class对象
     public static synchronized void sync1() {

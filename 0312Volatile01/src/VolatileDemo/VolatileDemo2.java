@@ -1,31 +1,31 @@
 package VolatileDemo;
 
 /**
- * volatile ÌØÐÔ¶þ: ½ûÖ¹Ö¸ÁîÖØÅÅ
- * 
- * Ö¸ÁîÖØÅÅ½âÊÍ:
- * ÈçÏÂÒÔÏÂ´úÂë
+ * volatile ç‰¹æ€§äºŒ: ç¦æ­¢æŒ‡ä»¤é‡æŽ’
+ *
+ * æŒ‡ä»¤é‡æŽ’è§£é‡Š:
+ * å¦‚ä¸‹ä»¥ä¸‹ä»£ç 
  * int i = 0;
  * int j = 1;
- * ¿ÉÄÜ»áÏÈÖ´ÐÐint j = 1;Õâ¾ä£¬Ò²¾ÍÊÇÖØÅÅÐòÁË
- * 
+ * å¯èƒ½ä¼šå…ˆæ‰§è¡Œint j = 1;è¿™å¥ï¼Œä¹Ÿå°±æ˜¯é‡æŽ’åºäº†
+ *
  * @author Administrator
  *
  */
 public class VolatileDemo2 {
 	private static String text;
 	private static volatile boolean flag = false;
-	
+
 	public static void main(String[] args) {
-		
+
 		new Thread(() -> {
 			text = "my do something";
-			//ÈçÏÈÖ´ÐÐ¸Ã¾ä¾ÍÊÇÖ¸ÁîÖØÅÅÁË, ÕâÊÇtext»¹Ã»ÓÐ¸³Öµ, ÔÚÆäËüÏß³ÌÊä³ötextÊÇ¿Õ
-			//£¨´Ë´¦Õâ¸öÀý×ÓÖ»ÊÇÓÃÓÚËµÃ÷ÖØÅÅÐò£¬Êµ¼ÊÔËÐÐÊ±ºÜÄÑ³öÏÖ¡££©
+			//å¦‚å…ˆæ‰§è¡Œè¯¥å¥å°±æ˜¯æŒ‡ä»¤é‡æŽ’äº†, è¿™æ˜¯textè¿˜æ²¡æœ‰èµ‹å€¼, åœ¨å…¶å®ƒçº¿ç¨‹è¾“å‡ºtextæ˜¯ç©º
+			//ï¼ˆæ­¤å¤„è¿™ä¸ªä¾‹å­åªæ˜¯ç”¨äºŽè¯´æ˜Žé‡æŽ’åºï¼Œå®žé™…è¿è¡Œæ—¶å¾ˆéš¾å‡ºçŽ°ã€‚ï¼‰
 			flag = true;
-			
+
 		}).start();
-		
+
 		new Thread(() -> {
 			while(!flag){
 				try {
@@ -54,6 +54,6 @@ class MyBus{
 	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
-	
-	
+
+
 }

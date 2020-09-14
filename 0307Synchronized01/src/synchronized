@@ -1,6 +1,9 @@
 
 https://www.cnblogs.com/tong-yuan/p/synchronized.html
 
+synchronized是可以保证原子性、可见性和有序性的。
+synchronized是一个非公平锁
+
 synchronized 实现原理
 在学习Java内存模型的时候，我们介绍过两个指令：lock 和 unlock。
 
