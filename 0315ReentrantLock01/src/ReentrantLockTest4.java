@@ -3,11 +3,11 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * »ñÈ¡ËøÊ±ÏŞÊ±µÈ´ı
- * 
- * Ïß³ÌÍ¨¹ıµ÷ÓÃtryLock()·½·¨»ñÈ¡Ëø,µÚÒ»´Î»ñÈ¡ËøÊ§°ÜÊ±»áĞİÃß10ºÁÃë,È»ºóÖØĞÂ»ñÈ¡£¬Ö±µ½»ñÈ¡³É¹¦¡£µÚ¶ş´Î»ñÈ¡Ê§°ÜÊ±,Ê×ÏÈ»áÊÍ·ÅµÚÒ»°ÑËø,
- * ÔÙĞİÃß10ºÁÃë,È»ºóÖØÊÔÖ±µ½³É¹¦ÎªÖ¹¡£Ïß³Ì»ñÈ¡µÚ¶ş°ÑËøÊ§°ÜÊ±½«»áÊÍ·ÅµÚÒ»°ÑËø£¬ÕâÊÇ½â¾öËÀËøÎÊÌâµÄ¹Ø¼ü,±ÜÃâÁËÁ½¸öÏß³Ì·Ö±ğ³ÖÓĞÒ»°ÑËøÈ»ºóÏà»¥ÇëÇóÁíÒ»°ÑËø¡£
- * 
+ * è·å–é”æ—¶é™æ—¶ç­‰å¾…
+ *
+ * çº¿ç¨‹é€šè¿‡è°ƒç”¨tryLock()æ–¹æ³•è·å–é”,ç¬¬ä¸€æ¬¡è·å–é”å¤±è´¥æ—¶ä¼šä¼‘çœ 10æ¯«ç§’,ç„¶åé‡æ–°è·å–ï¼Œç›´åˆ°è·å–æˆåŠŸã€‚ç¬¬äºŒæ¬¡è·å–å¤±è´¥æ—¶,é¦–å…ˆä¼šé‡Šæ”¾ç¬¬ä¸€æŠŠé”,
+ * å†ä¼‘çœ 10æ¯«ç§’,ç„¶åé‡è¯•ç›´åˆ°æˆåŠŸä¸ºæ­¢ã€‚çº¿ç¨‹è·å–ç¬¬äºŒæŠŠé”å¤±è´¥æ—¶å°†ä¼šé‡Šæ”¾ç¬¬ä¸€æŠŠé”ï¼Œè¿™æ˜¯è§£å†³æ­»é”é—®é¢˜çš„å…³é”®,é¿å…äº†ä¸¤ä¸ªçº¿ç¨‹åˆ†åˆ«æŒæœ‰ä¸€æŠŠé”ç„¶åç›¸äº’è¯·æ±‚å¦ä¸€æŠŠé”ã€‚
+ *
  * @author Administrator
  *
  */
@@ -17,8 +17,8 @@ public class ReentrantLockTest4 {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		Thread thread = new Thread(new ThreadDemo(lock1, lock2));// ¸ÃÏß³ÌÏÈ»ñÈ¡Ëø1,ÔÙ»ñÈ¡Ëø2
-		Thread thread1 = new Thread(new ThreadDemo(lock2, lock1));// ¸ÃÏß³ÌÏÈ»ñÈ¡Ëø2,ÔÙ»ñÈ¡Ëø1
+		Thread thread = new Thread(new ThreadDemo(lock1, lock2));// è¯¥çº¿ç¨‹å…ˆè·å–é”1,å†è·å–é”2
+		Thread thread1 = new Thread(new ThreadDemo(lock2, lock1));// è¯¥çº¿ç¨‹å…ˆè·å–é”2,å†è·å–é”1
 		thread.start();
 		thread1.start();
 	}
@@ -47,7 +47,7 @@ public class ReentrantLockTest4 {
 			} finally {
 				firstLock.unlock();
 				secondLock.unlock();
-				System.out.println(Thread.currentThread().getName() + "Õı³£½áÊø!");
+				System.out.println(Thread.currentThread().getName() + "æ­£å¸¸ç»“æŸ!");
 			}
 		}
 	}

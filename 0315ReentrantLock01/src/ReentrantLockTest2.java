@@ -2,26 +2,26 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * ReentrantLock¹«Æ½Ëø (Ã²ËÆ´ï²»µ½Ğ§¹û)
+ * ReentrantLockå…¬å¹³é” (è²Œä¼¼è¾¾ä¸åˆ°æ•ˆæœ)
  * @author Administrator
  *
  */
 public class ReentrantLockTest2 {
 
 	static ReentrantLock lock =  new ReentrantLock(true);
-	
+
 	public static void main(String[] args) throws InterruptedException{
 		for (int i = 0; i < 5; i++) {
-			//Thread.sleep(1);//²âÊÔ¼ÓÉÏĞİÃß²ÅÄÜ´ïµ½Ğ§¹û
+			//Thread.sleep(1);//æµ‹è¯•åŠ ä¸Šä¼‘çœ æ‰èƒ½è¾¾åˆ°æ•ˆæœ
 			new Thread(new FairLock(i)).start();
-			
+
 		}
 	}
-	
+
 	static class FairLock implements Runnable {
-		
+
 		int id;
-		
+
 		public FairLock(int id){
 			this.id = id;
 		}
@@ -30,11 +30,11 @@ public class ReentrantLockTest2 {
 		public void run() {
 			for (int i = 0; i < 2; i++) {
 				lock.lock();
-				System.out.println("Ëøid:" + id);
+				System.out.println("é”id:" + id);
 				lock.unlock();
 			}
 
 		}
-		
+
 	}
 }

@@ -4,14 +4,14 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class MyBlockingQueue<E> {
 
-    int size;//×èÈû¶ÓÁĞ×î´óÈİÁ¿
+    int size;//é˜»å¡é˜Ÿåˆ—æœ€å¤§å®¹é‡
 
     ReentrantLock lock = new ReentrantLock();
 
-    LinkedList<E> list=new LinkedList<>();//¶ÓÁĞµ×²ãÊµÏÖ
+    LinkedList<E> list=new LinkedList<>();//é˜Ÿåˆ—åº•å±‚å®ç°
 
-    Condition notFull = lock.newCondition();//¶ÓÁĞÂúÊ±µÄµÈ´ıÌõ¼ş
-    Condition notEmpty = lock.newCondition();//¶ÓÁĞ¿ÕÊ±µÄµÈ´ıÌõ¼ş
+    Condition notFull = lock.newCondition();//é˜Ÿåˆ—æ»¡æ—¶çš„ç­‰å¾…æ¡ä»¶
+    Condition notEmpty = lock.newCondition();//é˜Ÿåˆ—ç©ºæ—¶çš„ç­‰å¾…æ¡ä»¶
 
     public MyBlockingQueue(int size) {
         this.size = size;
@@ -20,11 +20,11 @@ public class MyBlockingQueue<E> {
     public void enqueue(E e) throws InterruptedException {
         lock.lock();
         try {
-            while (list.size() ==size)//¶ÓÁĞÒÑÂú,ÔÚnotFullÌõ¼şÉÏµÈ´ı
+            while (list.size() ==size)//é˜Ÿåˆ—å·²æ»¡,åœ¨notFullæ¡ä»¶ä¸Šç­‰å¾…
                 notFull.await();
-            list.add(e);//Èë¶Ó:¼ÓÈëÁ´±íÄ©Î²
-            System.out.println("Èë¶Ó£º" +e);
-            notEmpty.signal(); //Í¨ÖªÔÚnotEmptyÌõ¼şÉÏµÈ´ıµÄÏß³Ì
+            list.add(e);//å…¥é˜Ÿ:åŠ å…¥é“¾è¡¨æœ«å°¾
+            System.out.println("å…¥é˜Ÿï¼š" +e);
+            notEmpty.signal(); //é€šçŸ¥åœ¨notEmptyæ¡ä»¶ä¸Šç­‰å¾…çš„çº¿ç¨‹
         } finally {
             lock.unlock();
         }
@@ -34,11 +34,11 @@ public class MyBlockingQueue<E> {
         E e;
         lock.lock();
         try {
-            while (list.size() == 0)//¶ÓÁĞÎª¿Õ,ÔÚnotEmptyÌõ¼şÉÏµÈ´ı
+            while (list.size() == 0)//é˜Ÿåˆ—ä¸ºç©º,åœ¨notEmptyæ¡ä»¶ä¸Šç­‰å¾…
                 notEmpty.await();
-            e = list.removeFirst();//³ö¶Ó:ÒÆ³ıÁ´±íÊ×ÔªËØ
-            System.out.println("³ö¶Ó£º"+e);
-            notFull.signal();//Í¨ÖªÔÚnotFullÌõ¼şÉÏµÈ´ıµÄÏß³Ì
+            e = list.removeFirst();//å‡ºé˜Ÿ:ç§»é™¤é“¾è¡¨é¦–å…ƒç´ 
+            System.out.println("å‡ºé˜Ÿï¼š"+e);
+            notFull.signal();//é€šçŸ¥åœ¨notFullæ¡ä»¶ä¸Šç­‰å¾…çš„çº¿ç¨‹
             return e;
         } finally {
             lock.unlock();
