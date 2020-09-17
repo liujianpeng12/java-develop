@@ -4,22 +4,22 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * CyclicBarrier»¹Ìá¹©Ò»¸ö¸ü¸ß¼¶µÄ¹¹Ôìº¯ÊıCyclicBarrier(int parties, Runnable
- * barrierAction)£¬ÓÃÓÚÔÚÏß³Ìµ½´ïÆÁÕÏÊ±£¬ÓÅÏÈÖ´ĞĞbarrierAction£¬·½±ã´¦Àí¸ü¸´ÔÓµÄÒµÎñ³¡¾°¡£Ê¾Àı´úÂëÈçÏÂ£º
- * 
+ * CyclicBarrierè¿˜æä¾›ä¸€ä¸ªæ›´é«˜çº§çš„æ„é€ å‡½æ•°CyclicBarrier(int parties, Runnable
+ * barrierAction)ï¼Œç”¨äºåœ¨çº¿ç¨‹åˆ°è¾¾å±éšœæ—¶ï¼Œä¼˜å…ˆæ‰§è¡ŒbarrierActionï¼Œæ–¹ä¾¿å¤„ç†æ›´å¤æ‚çš„ä¸šåŠ¡åœºæ™¯ã€‚ç¤ºä¾‹ä»£ç å¦‚ä¸‹ï¼š
+ *
  * @author Administrator
  *
  */
 public class CyclicBarrierExample3 {
-	// ÇëÇóµÄÊıÁ¿
+	// è¯·æ±‚çš„æ•°é‡
 	private static final int threadCount = 550;
-	// ĞèÒªÍ¬²½µÄÏß³ÌÊıÁ¿
+	// éœ€è¦åŒæ­¥çš„çº¿ç¨‹æ•°é‡
 	private static final CyclicBarrier cyclicBarrier = new CyclicBarrier(5, () -> {
-		System.out.println("------µ±Ïß³ÌÊı´ïµ½Ö®ºó£¬ÓÅÏÈÖ´ĞĞ------");
+		System.out.println("------å½“çº¿ç¨‹æ•°è¾¾åˆ°ä¹‹åï¼Œä¼˜å…ˆæ‰§è¡Œ------");
 	});
 
 	public static void main(String[] args) throws InterruptedException {
-		// ´´½¨Ïß³Ì³Ø
+		// åˆ›å»ºçº¿ç¨‹æ± 
 		ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
 		for (int i = 0; i < threadCount; i++) {

@@ -13,8 +13,13 @@ import java.util.stream.IntStream;
  * （4）使用堆外内存；
  * （5）CAS操作；
  * （6）阻塞/唤醒线程；
+ *
+ *  unsafe.compareAndSwapInt 首先这个是原子操作, 其次需要传入原始值和欲修改的值, 若是原始则修改成功,否则失败
  */
 public class UnsafeTest {
+
+    private int state = 0;
+
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, InstantiationException, InterruptedException {
 
         //获取Unsafe的实例
@@ -51,6 +56,10 @@ public class UnsafeTest {
         //CompareAndSwap操作
         //JUC下面大量使用了CAS操作，它们的底层是调用的Unsafe的CompareAndSwapXXX()方法。这种方式广泛运用于无锁算法，与java中标准的悲观锁机制相比，它可以利用CAS处理器指令提供极大的加速。
         CounterTest();
+        //CAS2
+        UnsafeTest test = new UnsafeTest();
+        test.CounterTest2();
+
 
 
         //park/unpark
@@ -70,6 +79,16 @@ public class UnsafeTest {
         Thread.sleep(2000);
 
         System.out.println(counter.getCount());//1000000
+    }
+
+    private void CounterTest2() throws NoSuchFieldException, IllegalAccessException {
+        Field field = Unsafe.class.getDeclaredField("theUnsafe");
+        field.setAccessible(true);
+        Unsafe unsafe1 = (Unsafe) field.get(null);
+
+        long offset = unsafe1.objectFieldOffset(UnsafeTest.class.getDeclaredField("state"));
+        boolean flag = unsafe1.compareAndSwapInt(this, offset,1, 2);
+        System.out.println("cas更新结果:" + flag);//false
     }
 }
 

@@ -1,7 +1,7 @@
 
 /**
- * Ïß³ÌËÀËø
- * µ÷ÓÃµ±Ç°¶ÔÏóµÄÍ¬²½·½·¨Ê±,ÔÚ·½·¨ÄÚ²¿ÓÖµ÷ÓÃÁËÆäËû¶ÔÏóµÄÍ¬²½·½·¨,¾Í»á³öÏÖËÀËø
+ * çº¿ç¨‹æ­»é”: æ­»é”çš„å®šä¹‰æ˜¯çº¿ç¨‹Aå æœ‰ç€çº¿ç¨‹Béœ€è¦çš„èµ„æºï¼Œçº¿ç¨‹Bå æœ‰ç€çº¿ç¨‹Aéœ€è¦çš„èµ„æºï¼Œä¸¤ä¸ªçº¿ç¨‹ç›¸äº’ç­‰å¾…å¯¹æ–¹é‡Šæ”¾èµ„æº
+ * è°ƒç”¨å½“å‰å¯¹è±¡çš„åŒæ­¥æ–¹æ³•æ—¶,åœ¨æ–¹æ³•å†…éƒ¨åˆè°ƒç”¨äº†å…¶ä»–å¯¹è±¡çš„åŒæ­¥æ–¹æ³•,å°±ä¼šå‡ºç°æ­»é”
  * @author Administrator
  *
  */
@@ -31,19 +31,19 @@ class DeadThread implements Runnable {
 
 class BangFei{
 	public synchronized void say(GeGe g){
-		System.out.println("¸øÎÒ500W,·ÅÁËÄãÃÃÃÃ");
+		System.out.println("ç»™æˆ‘500W,æ”¾äº†ä½ å¦¹å¦¹");
 		g.fun();
 	}
 	public synchronized void fun(){
-		System.out.println("°ó¼Ü·¸µÃµ½ÁË500W");
+		System.out.println("ç»‘æ¶çŠ¯å¾—åˆ°äº†500W");
 	}
 }
 class GeGe{
 	public synchronized void say(BangFei b){
-		System.out.println("·ÅÁËÎÒÃÃÃÃ,¸øÄã500W,");
+		System.out.println("æ”¾äº†æˆ‘å¦¹å¦¹,ç»™ä½ 500W,");
 		b.fun();
 	}
 	public synchronized void fun(){
-		System.out.println("¸ç¸ç¾È³öÃÃÃÃ,»¨ÁË500W,");
+		System.out.println("å“¥å“¥æ•‘å‡ºå¦¹å¦¹,èŠ±äº†500W,");
 	}
 }
