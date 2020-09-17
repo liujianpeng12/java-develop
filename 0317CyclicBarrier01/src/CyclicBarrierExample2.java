@@ -5,19 +5,21 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * µ±Ïß³ÌÊıÁ¿Ò²¾ÍÊÇÇëÇóÊıÁ¿´ïµ½ÎÒÃÇ¶¨ÒåµÄ 5 ¸öµÄÊ±ºò£¬ await·½·¨Ö®ºóµÄ·½·¨²Å±»Ö´ĞĞ
- * 
+ * CyclicBarrierï¼Œå›ç¯æ …æ 
+ *
+ * å½“çº¿ç¨‹æ•°é‡ä¹Ÿå°±æ˜¯è¯·æ±‚æ•°é‡è¾¾åˆ°æˆ‘ä»¬å®šä¹‰çš„ 5 ä¸ªçš„æ—¶å€™ï¼Œ awaitæ–¹æ³•ä¹‹åçš„æ–¹æ³•æ‰è¢«æ‰§è¡Œ
+ *
  * @author Administrator
  *
  */
 public class CyclicBarrierExample2 {
-  // ÇëÇóµÄÊıÁ¿
+  // è¯·æ±‚çš„æ•°é‡
   private static final int threadCount = 550;
-  // ĞèÒªÍ¬²½µÄÏß³ÌÊıÁ¿
+  // éœ€è¦åŒæ­¥çš„çº¿ç¨‹æ•°é‡
   private static final CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
 
   public static void main(String[] args) throws InterruptedException {
-    // ´´½¨Ïß³Ì³Ø
+    // åˆ›å»ºçº¿ç¨‹æ± 
     ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     for (int i = 0; i < threadCount; i++) {
@@ -41,7 +43,7 @@ public class CyclicBarrierExample2 {
   public static void test(int threadnum) throws InterruptedException, BrokenBarrierException {
     System.out.println("threadnum:" + threadnum + "is ready");
     try {
-      /**µÈ´ı60Ãë£¬±£Ö¤×ÓÏß³ÌÍêÈ«Ö´ĞĞ½áÊø*/  
+      /**ç­‰å¾…60ç§’ï¼Œä¿è¯å­çº¿ç¨‹å®Œå…¨æ‰§è¡Œç»“æŸ*/
       cyclicBarrier.await(60, TimeUnit.SECONDS);
     } catch (Exception e) {
       System.out.println("-----CyclicBarrierException------");

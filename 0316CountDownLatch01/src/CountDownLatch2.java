@@ -2,11 +2,11 @@ import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * ÊµÏÖ¶à¸öÏß³Ì¿ªÊ¼Ö´ĞĞÈÎÎñµÄ×î´ó²¢ĞĞĞÔ¡£×¢ÒâÊÇ²¢ĞĞĞÔ£¬²»ÊÇ²¢·¢£¬Ç¿µ÷µÄÊÇ¶à¸öÏß³ÌÔÚÄ³Ò»Ê±¿ÌÍ¬Ê±¿ªÊ¼Ö´ĞĞ¡£
- * ÀàËÆÓÚÈüÅÜ£¬½«¶à¸öÏß³Ì·Åµ½Æğµã£¬µÈ´ı·¢ÁîÇ¹Ïì£¬È»ºóÍ¬Ê±¿ªÅÜ¡£
- * ×ö·¨ÊÇ³õÊ¼»¯Ò»¸ö¹²ÏíµÄ CountDownLatch ¶ÔÏó£¬½«Æä¼ÆÊıÆ÷³õÊ¼»¯Îª 1 £ºnew CountDownLatch(1) £¬
- * ¶à¸öÏß³ÌÔÚ¿ªÊ¼Ö´ĞĞÈÎÎñÇ°Ê×ÏÈ coundownlatch.await()£¬µ±Ö÷Ïß³Ìµ÷ÓÃ countDown() Ê±£¬¼ÆÊıÆ÷±äÎª0£¬¶à¸öÏß³ÌÍ¬Ê±±»»½ĞÑ¡£
- * 
+ * å®ç°å¤šä¸ªçº¿ç¨‹å¼€å§‹æ‰§è¡Œä»»åŠ¡çš„æœ€å¤§å¹¶è¡Œæ€§ã€‚æ³¨æ„æ˜¯å¹¶è¡Œæ€§ï¼Œä¸æ˜¯å¹¶å‘ï¼Œå¼ºè°ƒçš„æ˜¯å¤šä¸ªçº¿ç¨‹åœ¨æŸä¸€æ—¶åˆ»åŒæ—¶å¼€å§‹æ‰§è¡Œã€‚
+ * ç±»ä¼¼äºèµ›è·‘ï¼Œå°†å¤šä¸ªçº¿ç¨‹æ”¾åˆ°èµ·ç‚¹ï¼Œç­‰å¾…å‘ä»¤æªå“ï¼Œç„¶ååŒæ—¶å¼€è·‘ã€‚
+ * åšæ³•æ˜¯åˆå§‹åŒ–ä¸€ä¸ªå…±äº«çš„ CountDownLatch å¯¹è±¡ï¼Œå°†å…¶è®¡æ•°å™¨åˆå§‹åŒ–ä¸º 1 ï¼šnew CountDownLatch(1) ï¼Œ
+ * å¤šä¸ªçº¿ç¨‹åœ¨å¼€å§‹æ‰§è¡Œä»»åŠ¡å‰é¦–å…ˆ coundownlatch.await()ï¼Œå½“ä¸»çº¿ç¨‹è°ƒç”¨ countDown() æ—¶ï¼Œè®¡æ•°å™¨å˜ä¸º0ï¼Œå¤šä¸ªçº¿ç¨‹åŒæ—¶è¢«å”¤é†’ã€‚
+ *
  * @author Administrator
  *
  */
@@ -22,7 +22,7 @@ public class CountDownLatch2 {
 					try {
 						latch.await();
 
-						System.out.println(Thread.currentThread().getName() + "ºÅÑ¡ÊÖ¿ªÊ¼ÆğÅÜ.");
+						System.out.println(Thread.currentThread().getName() + "å·é€‰æ‰‹å¼€å§‹èµ·è·‘.");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -31,7 +31,7 @@ public class CountDownLatch2 {
 			}).start();
 		}
 
-		System.out.println("ËùÓĞÑ¡ÊÖ×¼±¸¾ÍĞ÷, ¿ªÊ¼ÆğÅÜ!!!");
+		System.out.println("æ‰€æœ‰é€‰æ‰‹å‡†å¤‡å°±ç»ª, å¼€å§‹èµ·è·‘!!!");
 		latch.countDown();
 	}
 }

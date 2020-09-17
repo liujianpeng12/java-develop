@@ -2,14 +2,14 @@ package VolatileDemo;
 
 /**
  * https://www.cnblogs.com/tong-yuan/p/volatile.html
- * 
- * volatileÌØĞÔÒ»: ¿É¼ûĞÔ--µ±Ò»¸öÏß³ÌĞŞ¸ÄÁË¹²Ïí±äÁ¿µÄÖµ£¬ÆäËüÏß³ÌÄÜÁ¢¼´¸ĞÖªµ½ÕâÖÖ±ä»¯
- * 
- * ÏÂÃæ´úÂëÖĞ,Õë¶Ôfinished±äÁ¿£¬Ê¹ÓÃvolatileĞŞÊÎÊ±Õâ¸ö³ÌĞò¿ÉÒÔÕı³£½áÊø£¬²»Ê¹ÓÃvolatileĞŞÊÎÊ±Õâ¸ö³ÌĞòÓÀÔ¶²»»á½áÊø
- * 
- * ÒòÎª²»Ê¹ÓÃvolatileĞŞÊÎÊ±£¬checkFinished()ËùÔÚµÄÏß³ÌÃ¿´Î¶¼ÊÇ¶ÁÈ¡µÄËü×Ô¼º¹¤×÷ÄÚ´æÖĞµÄ±äÁ¿µÄÖµ£¬Õâ¸öÖµÒ»Ö±Îª0£¬ËùÒÔÒ»Ö±¶¼²»»áÌø³öwhileÑ­»·¡£
- * Ê¹ÓÃvolatileĞŞÊÎÊ±£¬checkFinished()ËùÔÚµÄÏß³ÌÃ¿´Î¶¼ÊÇ´ÓÖ÷ÄÚ´æÖĞ¼ÓÔØ×îĞÂµÄÖµ£¬µ±finished±»Ö÷Ïß³ÌĞŞ¸ÄÎª1µÄÊ±ºò£¬Ëü»áÁ¢¼´¸ĞÖªµ½£¬½ø¶ø»áÌø³öwhileÑ­»·¡£
- * 
+ *
+ * volatileç‰¹æ€§ä¸€: å¯è§æ€§--å½“ä¸€ä¸ªçº¿ç¨‹ä¿®æ”¹äº†å…±äº«å˜é‡çš„å€¼ï¼Œå…¶å®ƒçº¿ç¨‹èƒ½ç«‹å³æ„ŸçŸ¥åˆ°è¿™ç§å˜åŒ–
+ *
+ * ä¸‹é¢ä»£ç ä¸­,é’ˆå¯¹finishedå˜é‡ï¼Œä½¿ç”¨volatileä¿®é¥°æ—¶è¿™ä¸ªç¨‹åºå¯ä»¥æ­£å¸¸ç»“æŸï¼Œä¸ä½¿ç”¨volatileä¿®é¥°æ—¶è¿™ä¸ªç¨‹åºæ°¸è¿œä¸ä¼šç»“æŸ
+ *
+ * å› ä¸ºä¸ä½¿ç”¨volatileä¿®é¥°æ—¶ï¼ŒcheckFinished()æ‰€åœ¨çš„çº¿ç¨‹æ¯æ¬¡éƒ½æ˜¯è¯»å–çš„å®ƒè‡ªå·±å·¥ä½œå†…å­˜ä¸­çš„å˜é‡çš„å€¼ï¼Œè¿™ä¸ªå€¼ä¸€ç›´ä¸º0ï¼Œæ‰€ä»¥ä¸€ç›´éƒ½ä¸ä¼šè·³å‡ºwhileå¾ªç¯ã€‚
+ * ä½¿ç”¨volatileä¿®é¥°æ—¶ï¼ŒcheckFinished()æ‰€åœ¨çš„çº¿ç¨‹æ¯æ¬¡éƒ½æ˜¯ä»ä¸»å†…å­˜ä¸­åŠ è½½æœ€æ–°çš„å€¼ï¼Œå½“finishedè¢«ä¸»çº¿ç¨‹ä¿®æ”¹ä¸º1çš„æ—¶å€™ï¼Œå®ƒä¼šç«‹å³æ„ŸçŸ¥åˆ°ï¼Œè¿›è€Œä¼šè·³å‡ºwhileå¾ªç¯ã€‚
+ *
  * @author Administrator
  *
  */
@@ -17,27 +17,27 @@ public class VolatileDemo1 {
 
 	//private static boolean finished = false;
 	private static volatile boolean finished = false;
-	
+
 	private static void checkFinish(){
 		while(!finished){
 			//do smoething
 		}
-		System.out.println("×ÓÏß³Ì½áÊø");
+		System.out.println("å­çº¿ç¨‹ç»“æŸ");
 	}
-	
+
 	private static void finish(){
 		finished = true;
 	}
-	
+
 	public static void main(String[] args) throws InterruptedException {
-		//ÆğÒ»¸öÏß³Ì¼ì²âÊÇ·ñ½áÊø
+		//èµ·ä¸€ä¸ªçº¿ç¨‹æ£€æµ‹æ˜¯å¦ç»“æŸ
 		new Thread(() -> checkFinish()).start();
-		
-		Thread.sleep(1000);//²»Ë¯ÃßµÄ»°²»Ê¹ÓÃvolatileÒ²¿ÉÒÔ½áÊø×ÓÏß³Ì
-		
-		//ÉèÖÃ½áÊø±êÖ¾
+
+		Thread.sleep(1000);//ä¸ç¡çœ çš„è¯ä¸ä½¿ç”¨volatileä¹Ÿå¯ä»¥ç»“æŸå­çº¿ç¨‹
+
+		//è®¾ç½®ç»“æŸæ ‡å¿—
 		new Thread(() -> finish()).start();
-		
-		System.out.println("Ö÷Ïß³Ì½áÊø");
+
+		System.out.println("ä¸»çº¿ç¨‹ç»“æŸ");
 	}
 }

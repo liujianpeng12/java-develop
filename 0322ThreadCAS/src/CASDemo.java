@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class CASDemo implements Runnable {
 
 	AtomicBoolean flag  = new AtomicBoolean(true);
-	
+
 	public static void main(String[] args){
 		CASDemo demo = new CASDemo();
 		new Thread(demo).start();
@@ -23,7 +23,7 @@ public class CASDemo implements Runnable {
 			}
 			flag.set(true);
 		}else{
-			System.out.println("ÖØÊÔ»úÖÆthread:"+Thread.currentThread().getName()+";flag:"+flag.get());
+			System.out.println("é‡è¯•æœºåˆ¶thread:"+Thread.currentThread().getName()+";flag:"+flag.get());
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -32,8 +32,8 @@ public class CASDemo implements Runnable {
 			}
 			run();
 		}
-		
+
 	}
-	
-	
+
+
 }

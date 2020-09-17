@@ -8,7 +8,10 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  * 
  * AQS是基于FIFO的队列实现的，并且内部维护了一个状态变量state，通过原子更新这个状态变量state即可以实现加锁解锁操作
  * 
- * @author Administrator
+ * （1）AQS是Java中几乎所有锁和同步器的一个基础框架，这里说的是“几乎”，因为有极个别确实没有通过AQS来实现；
+ * （2）AQS中维护了一个队列，这个队列使用双链表实现，用于保存等待锁排队的线程；
+ * （3）AQS中维护了一个状态变量，控制这个状态变量就可以实现加锁解锁操作了；
+ * （4）基于AQS自己动手写一个锁非常简单，只需要实现AQS的几个方法即可。
  *
  */
 public class MyLockBaseOnAqs {

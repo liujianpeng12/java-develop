@@ -1,8 +1,8 @@
 package com0307Synchronized01;
 
 /**
- * synchronized ÊÇ¿ÉÖØÈëËø: Ò»¸ö»ñµÃµÄËøµÄÏß³ÌÃ»Ö´ĞĞÍê¿ÉÒÔ¼ÌĞø»ñµÃËø
- * Ïß³ÌÕ¼ÓÃËøµÄÊ±ºò£¬Èç¹ûÖ´ĞĞµÄÍ¬²½³öÏÖÒì³££¬»á½«ËøÈÃ³ö
+ * synchronized æ˜¯å¯é‡å…¥é”: ä¸€ä¸ªè·å¾—çš„é”çš„çº¿ç¨‹æ²¡æ‰§è¡Œå®Œå¯ä»¥ç»§ç»­è·å¾—é”
+ * çº¿ç¨‹å ç”¨é”çš„æ—¶å€™ï¼Œå¦‚æœæ‰§è¡Œçš„åŒæ­¥å‡ºç°å¼‚å¸¸ï¼Œä¼šå°†é”è®©å‡º
  * @author Administrator
  *
  */
@@ -13,7 +13,7 @@ public class ThreadDemo2 {
 		MyThread6 t =  new MyThread6(s);
 		t.start();
 	}
-	
+
 }
 
 class MyThread6 extends Thread{
@@ -21,7 +21,7 @@ class MyThread6 extends Thread{
 	public MyThread6(Service s){
 		this.s = s;
 	}
-	
+
 	@Override
 	public void run() {
 		s.service1();
@@ -30,16 +30,16 @@ class MyThread6 extends Thread{
 
 class Service{
 	public synchronized void service1(){
-		System.out.println("·½·¨1");
+		System.out.println("æ–¹æ³•1");
 		service2();
 	}
-	
+
 	public synchronized void service2(){
-		System.out.println("·½·¨2");
+		System.out.println("æ–¹æ³•2");
 		service3();
 	}
-	
+
 	public synchronized void service3(){
-		System.out.println("·½·¨3");
+		System.out.println("æ–¹æ³•3");
 	}
 }

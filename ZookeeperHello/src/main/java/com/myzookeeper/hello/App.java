@@ -17,7 +17,7 @@ public class App {
 	public static void main(String[] args) throws Exception {
 
 		//创建一个与服务器的连接
-		ZooKeeper zk = new ZooKeeper("192.168.0.180:2181", 111, new Watcher() {
+		ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 60000, new Watcher() {
 			@Override
 			public void process(WatchedEvent event) {
 				System.out.println("已经触发了" + event.getPath() + "路径的" + event.getType() + "事件");

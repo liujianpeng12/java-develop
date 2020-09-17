@@ -1,8 +1,8 @@
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Ë¾»úºÍ¹¤ÈË£¬¹¤ÈË±ØĞëµÈµ½Ë¾»úÀ´ÁË²ÅÄÜ×°»õÉÏ³µ£¬Ë¾»ú±ØĞëµÃµÈµ½ËùÓĞ¹¤ÈË°Ñ»õÎï×°ÉÏ³µÁËÖ®ºó²ÅÄÜ°Ñ³µ¿ª×ß¡£
- * 
+ * å¸æœºå’Œå·¥äººï¼Œå·¥äººå¿…é¡»ç­‰åˆ°å¸æœºæ¥äº†æ‰èƒ½è£…è´§ä¸Šè½¦ï¼Œå¸æœºå¿…é¡»å¾—ç­‰åˆ°æ‰€æœ‰å·¥äººæŠŠè´§ç‰©è£…ä¸Šè½¦äº†ä¹‹åæ‰èƒ½æŠŠè½¦å¼€èµ°ã€‚
+ *
  * @author Administrator
  *
  */
@@ -11,32 +11,32 @@ public class CountDownLatch3 {
 	static int workerNum = 30;
 	static CountDownLatch driverLatch = new CountDownLatch(1);
 	static CountDownLatch workerLatch =  new CountDownLatch(workerNum);
-	
+
 	public static void main(String[] args) throws InterruptedException{
 		for (int i = 0; i < workerNum; i++) {
 			new Thread(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					try {
-						driverLatch.await();//¹¤ÈËµÈË¾»ú
-						System.out.println(Thread.currentThread().getName() + "¹¤×÷¿ªÊ¼¸É»î...");
+						driverLatch.await();//å·¥äººç­‰å¸æœº
+						System.out.println(Thread.currentThread().getName() + "å·¥ä½œå¼€å§‹å¹²æ´»...");
 						workerLatch.countDown();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 				}
 			}).start();
 		}
-		
-		System.out.println("Ë¾»úÀ´ÁË...");
+
+		System.out.println("å¸æœºæ¥äº†...");
 		driverLatch.countDown();
-		
-		System.out.println("¹¤ÈË¿ªÊ¼¸É»î...");
-		
+
+		System.out.println("å·¥äººå¼€å§‹å¹²æ´»...");
+
 		workerLatch.await();
-		System.out.println("ËùÓĞ¹¤ÈË¸ÉÍê»îÁË...Ë¾»ú°Ñ³µ¿ª×ß");
+		System.out.println("æ‰€æœ‰å·¥äººå¹²å®Œæ´»äº†...å¸æœºæŠŠè½¦å¼€èµ°");
 	}
 }

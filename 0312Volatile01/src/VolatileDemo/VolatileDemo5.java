@@ -5,27 +5,27 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 
+ *
  */
 public class VolatileDemo5 {
     public static AtomicInteger num = new AtomicInteger(0);
-    //Ê¹ÓÃCountDownLatchÀ´µÈ´ı¼ÆËãÏß³ÌÖ´ĞĞÍê
+    //ä½¿ç”¨CountDownLatchæ¥ç­‰å¾…è®¡ç®—çº¿ç¨‹æ‰§è¡Œå®Œ
     static CountDownLatch countDownLatch = new CountDownLatch(30);
     public static void main(String []args) throws InterruptedException {
-        //¿ªÆô30¸öÏß³Ì½øĞĞÀÛ¼Ó²Ù×÷
+        //å¼€å¯30ä¸ªçº¿ç¨‹è¿›è¡Œç´¯åŠ æ“ä½œ
         for(int i=0;i<30;i++){
             new Thread(){
                 public void run(){
                     for(int j=0;j<10000;j++){
-                    	num.incrementAndGet();//Ô­×ÓĞÔµÄnum++,Í¨¹ıÑ­»·CAS·½Ê½
+                        num.incrementAndGet();//åŸå­æ€§çš„num++,é€šè¿‡å¾ªç¯CASæ–¹å¼
                     }
                     countDownLatch.countDown();
                 }
             }.start();
         }
-        //µÈ´ı¼ÆËãÏß³ÌÖ´ĞĞÍê
+        //ç­‰å¾…è®¡ç®—çº¿ç¨‹æ‰§è¡Œå®Œ
         countDownLatch.await();
-        //Thread.sleep(1000); //²»Ê¹ÓÃCountDownLatchÒ²¿ÉÒÔ,Ö»Òª±£´æ×ã¹»Ê±¼äÈÃ×ÓÏß³ÌÔËĞĞÍê³É¾Í¿ÉÒÔ
+        //Thread.sleep(1000); //ä¸ä½¿ç”¨CountDownLatchä¹Ÿå¯ä»¥,åªè¦ä¿å­˜è¶³å¤Ÿæ—¶é—´è®©å­çº¿ç¨‹è¿è¡Œå®Œæˆå°±å¯ä»¥
         System.out.println(num);
     }
 }
