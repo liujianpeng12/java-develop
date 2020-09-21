@@ -14,7 +14,7 @@ import java.util.concurrent.locks.LockSupport;
  * @create 2020-09-17 11:40
  */
 @Slf4j
-@Component
+//@Component
 public class ZkLocker implements Locker {
 
     @Override

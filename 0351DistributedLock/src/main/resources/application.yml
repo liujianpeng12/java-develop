@@ -1,0 +1,6 @@
+spring:
+  redis:
+    #单机模式
+    host: 192.168.1.201
+    port: 6379
+    password: gxxzwd
