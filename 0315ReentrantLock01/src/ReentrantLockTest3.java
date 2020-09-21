@@ -3,7 +3,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * ReentrantLock¿ÉÏìÓ¦ÖĞ¶Ï
+ * ReentrantLockå¯å“åº”ä¸­æ–­
  * @author Administrator
  *
  */
@@ -12,11 +12,11 @@ public class ReentrantLockTest3 {
     static Lock lock2 = new ReentrantLock();
     public static void main(String[] args) throws InterruptedException {
 
-        Thread thread = new Thread(new ThreadDemo(lock1, lock2));//¸ÃÏß³ÌÏÈ»ñÈ¡Ëø1,ÔÙ»ñÈ¡Ëø2
-        Thread thread1 = new Thread(new ThreadDemo(lock2, lock1));//¸ÃÏß³ÌÏÈ»ñÈ¡Ëø2,ÔÙ»ñÈ¡Ëø1
+        Thread thread = new Thread(new ThreadDemo(lock1, lock2));//è¯¥çº¿ç¨‹å…ˆè·å–é”1,å†è·å–é”2
+        Thread thread1 = new Thread(new ThreadDemo(lock2, lock1));//è¯¥çº¿ç¨‹å…ˆè·å–é”2,å†è·å–é”1
         thread.start();
         thread1.start();
-        thread.interrupt();//ÊÇµÚÒ»¸öÏß³ÌÖĞ¶Ï
+        thread.interrupt();//æ˜¯ç¬¬ä¸€ä¸ªçº¿ç¨‹ä¸­æ–­
     }
 
     static class ThreadDemo implements Runnable {
@@ -30,14 +30,14 @@ public class ReentrantLockTest3 {
         public void run() {
             try {
                 firstLock.lockInterruptibly();
-                TimeUnit.MILLISECONDS.sleep(10);//¸üºÃµÄ´¥·¢ËÀËø
+                TimeUnit.MILLISECONDS.sleep(10);//æ›´å¥½çš„è§¦å‘æ­»é”
                 secondLock.lockInterruptibly();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
                 firstLock.unlock();
                 secondLock.unlock();
-                System.out.println(Thread.currentThread().getName()+"Õı³£½áÊø!");
+                System.out.println(Thread.currentThread().getName()+"æ­£å¸¸ç»“æŸ!");
             }
         }
     }

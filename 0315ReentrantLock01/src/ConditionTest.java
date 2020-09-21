@@ -2,8 +2,8 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * ½áºÏConditionÊµÏÖµÈ´ıÍ¨Öª»úÖÆ
- * 
+ * ç»“åˆConditionå®ç°ç­‰å¾…é€šçŸ¥æœºåˆ¶
+ *
  * @author Administrator
  *
  */
@@ -15,13 +15,13 @@ public class ConditionTest {
 
         lock.lock();
         new Thread(new SignalThread()).start();
-        System.out.println("Ö÷Ïß³ÌµÈ´ıÍ¨Öª");
+        System.out.println("ä¸»çº¿ç¨‹ç­‰å¾…é€šçŸ¥");
         try {
             condition.await();
         } finally {
             lock.unlock();
         }
-        System.out.println("Ö÷Ïß³Ì»Ö¸´ÔËĞĞ");
+        System.out.println("ä¸»çº¿ç¨‹æ¢å¤è¿è¡Œ");
     }
     static class SignalThread implements Runnable {
 
@@ -30,7 +30,7 @@ public class ConditionTest {
             lock.lock();
             try {
                 condition.signal();
-                System.out.println("×ÓÏß³ÌÍ¨Öª");
+                System.out.println("å­çº¿ç¨‹é€šçŸ¥");
             } finally {
                 lock.unlock();
             }
