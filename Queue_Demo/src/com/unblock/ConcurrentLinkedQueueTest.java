@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * Ò»¸ö»ùÓÚÁ´½Ó½ÚµãµÄÎŞ½çÏß³Ì°²È«¶ÓÁĞ¡£´Ë¶ÓÁĞ°´ÕÕ FIFO£¨ÏÈ½øÏÈ³ö£©Ô­Ôò¶ÔÔªËØ½øĞĞÅÅĞò¡£¶ÓÁĞµÄÍ·²¿ ÊÇ¶ÓÁĞÖĞÊ±¼ä×î³¤µÄÔªËØ¡£¶ÓÁĞµÄÎ²²¿
- * ÊÇ¶ÓÁĞÖĞÊ±¼ä×î¶ÌµÄÔªËØ¡£ ĞÂµÄÔªËØ²åÈëµ½¶ÓÁĞµÄÎ²²¿£¬¶ÓÁĞ»ñÈ¡²Ù×÷´Ó¶ÓÁĞÍ·²¿»ñµÃÔªËØ¡£µ±¶à¸öÏß³Ì¹²Ïí·ÃÎÊÒ»¸ö¹«¹² collection
- * Ê±£¬ConcurrentLinkedQueue ÊÇÒ»¸öÇ¡µ±µÄÑ¡Ôñ¡£´Ë¶ÓÁĞ²»ÔÊĞíÊ¹ÓÃ null ÔªËØ¡£
- * 
+ * ä¸€ä¸ªåŸºäºé“¾æ¥èŠ‚ç‚¹çš„æ— ç•Œçº¿ç¨‹å®‰å…¨é˜Ÿåˆ—ã€‚æ­¤é˜Ÿåˆ—æŒ‰ç…§ FIFOï¼ˆå…ˆè¿›å…ˆå‡ºï¼‰åŸåˆ™å¯¹å…ƒç´ è¿›è¡Œæ’åºã€‚é˜Ÿåˆ—çš„å¤´éƒ¨ æ˜¯é˜Ÿåˆ—ä¸­æ—¶é—´æœ€é•¿çš„å…ƒç´ ã€‚é˜Ÿåˆ—çš„å°¾éƒ¨
+ * æ˜¯é˜Ÿåˆ—ä¸­æ—¶é—´æœ€çŸ­çš„å…ƒç´ ã€‚ æ–°çš„å…ƒç´ æ’å…¥åˆ°é˜Ÿåˆ—çš„å°¾éƒ¨ï¼Œé˜Ÿåˆ—è·å–æ“ä½œä»é˜Ÿåˆ—å¤´éƒ¨è·å¾—å…ƒç´ ã€‚å½“å¤šä¸ªçº¿ç¨‹å…±äº«è®¿é—®ä¸€ä¸ªå…¬å…± collection
+ * æ—¶ï¼ŒConcurrentLinkedQueue æ˜¯ä¸€ä¸ªæ°å½“çš„é€‰æ‹©ã€‚æ­¤é˜Ÿåˆ—ä¸å…è®¸ä½¿ç”¨ null å…ƒç´ ã€‚
+ *
  * @author Administrator
  *
  */
@@ -22,31 +22,31 @@ public class ConcurrentLinkedQueueTest {
 
 	private static void offerAndPoll() {
 		ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
-		queue.offer("¹ş¹ş¹ş");
-		System.out.println("offerºó£¬¶ÓÁĞÊÇ·ñ¿Õ£¿" + queue.isEmpty());
-		System.out.println("´Ó¶ÓÁĞÖĞpoll£º" + queue.poll());
-		System.out.println("poolºó£¬¶ÓÁĞÊÇ·ñ¿Õ£¿" + queue.isEmpty());
+		queue.offer("å“ˆå“ˆå“ˆ");
+		System.out.println("offeråï¼Œé˜Ÿåˆ—æ˜¯å¦ç©ºï¼Ÿ" + queue.isEmpty());
+		System.out.println("ä»é˜Ÿåˆ—ä¸­pollï¼š" + queue.poll());
+		System.out.println("poolåï¼Œé˜Ÿåˆ—æ˜¯å¦ç©ºï¼Ÿ" + queue.isEmpty());
 	}
 
 	private static void peek() {
 		ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
-		queue.offer("¹ş¹ş");
-		System.out.println("offerºó£¬¶ÓÁĞÊÇ·ñ¿Õ£¿" + queue.isEmpty());
-		System.out.println("´Ó¶ÓÁĞÖĞpeek£º" + queue.peek());
-		System.out.println("´Ó¶ÓÁĞÖĞpeek£º" + queue.peek());
-		System.out.println("´Ó¶ÓÁĞÖĞpeek£º" + queue.peek());
-		System.out.println("peekºó£¬¶ÓÁĞÊÇ·ñ¿Õ£¿" + queue.isEmpty());
+		queue.offer("å“ˆå“ˆ");
+		System.out.println("offeråï¼Œé˜Ÿåˆ—æ˜¯å¦ç©ºï¼Ÿ" + queue.isEmpty());
+		System.out.println("ä»é˜Ÿåˆ—ä¸­peekï¼š" + queue.peek());
+		System.out.println("ä»é˜Ÿåˆ—ä¸­peekï¼š" + queue.peek());
+		System.out.println("ä»é˜Ÿåˆ—ä¸­peekï¼š" + queue.peek());
+		System.out.println("peekåï¼Œé˜Ÿåˆ—æ˜¯å¦ç©ºï¼Ÿ" + queue.isEmpty());
 	}
 
 	private static void remove() {
 		ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
-		queue.offer("¹ş¹ş");
-		System.out.println("offerºó£¬¶ÓÁĞÊÇ·ñ¿Õ£¿" + queue.isEmpty());
-		System.out.println("´Ó¶ÓÁĞÖĞremove´æÔÚÔªËØ£º" + queue.remove("¹ş¹ş"));
-		System.out.println("´Ó¶ÓÁĞÖĞremove²»´æÔÚÔªËØ£º" + queue.remove("123"));
-		System.out.println("removeºó£¬¶ÓÁĞÊÇ·ñ¿Õ£¿" + queue.isEmpty());
+		queue.offer("å“ˆå“ˆ");
+		System.out.println("offeråï¼Œé˜Ÿåˆ—æ˜¯å¦ç©ºï¼Ÿ" + queue.isEmpty());
+		System.out.println("ä»é˜Ÿåˆ—ä¸­removeå­˜åœ¨å…ƒç´ ï¼š" + queue.remove("å“ˆå“ˆ"));
+		System.out.println("ä»é˜Ÿåˆ—ä¸­removeä¸å­˜åœ¨å…ƒç´ ï¼š" + queue.remove("123"));
+		System.out.println("removeåï¼Œé˜Ÿåˆ—æ˜¯å¦ç©ºï¼Ÿ" + queue.isEmpty());
 	}
-	
+
 	private static void iterator(){
 		ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
 		queue.offer("3");
@@ -55,7 +55,7 @@ public class ConcurrentLinkedQueueTest {
 		while(it.hasNext()){
 			System.out.println(it.next());
 		}
-		
+
 	}
 
 }

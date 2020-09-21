@@ -6,39 +6,39 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * ±È½Ïsize()ºÍisEmpty() Ğ§ÂÊµÄÊ¾Àı£º
- * 
- * ³¡¾°£º10000¸öÈËÈ¥·¹µê³Ô·¹£¬10ÕÅ×À×Ó¹©·¹£¬·Ö±ğ±È½Ïsize() ºÍ isEmpty() µÄºÄÊ±
- * 
+ * æ¯”è¾ƒsize()å’ŒisEmpty() æ•ˆç‡çš„ç¤ºä¾‹ï¼š
+ *
+ * åœºæ™¯ï¼š10000ä¸ªäººå»é¥­åº—åƒé¥­ï¼Œ10å¼ æ¡Œå­ä¾›é¥­ï¼Œåˆ†åˆ«æ¯”è¾ƒsize() å’Œ isEmpty() çš„è€—æ—¶
+ *
  * @author Administrator
  *
  */
 public class ConcurrentLinkedQueueTest2 {
 
 	public static void main(String[] args) throws InterruptedException {
-		int peopleNum = 10000;// ³Ô·¹ÈËÊı
-		int tableNum = 10;// ·¹×ÀÊıÁ¿
+		int peopleNum = 10000;// åƒé¥­äººæ•°
+		int tableNum = 10;// é¥­æ¡Œæ•°é‡
 
 		ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
-		CountDownLatch count = new CountDownLatch(tableNum);// ¼ÆÊıÆ÷
+		CountDownLatch count = new CountDownLatch(tableNum);// è®¡æ•°å™¨
 
-		// ½«³Ô·¹ÈËÊı·ÅÈë¶ÓÁĞ£¨³Ô·¹µÄÈË½øĞĞÅÅ¶Ó£©
+		// å°†åƒé¥­äººæ•°æ”¾å…¥é˜Ÿåˆ—ï¼ˆåƒé¥­çš„äººè¿›è¡Œæ’é˜Ÿï¼‰
 		for (int i = 1; i <= peopleNum; i++) {
-			queue.offer("Ïû·ÑÕß_" + i);
+			queue.offer("æ¶ˆè´¹è€…_" + i);
 		}
-		// Ö´ĞĞ10¸öÏß³Ì´Ó¶ÓÁĞÈ¡³öÔªËØ£¨10¸ö×À×Ó¿ªÊ¼¹©·¹£©
-		System.out.println("-----------------------------------¿ª·¹ÁË-----------------------------------");
+		// æ‰§è¡Œ10ä¸ªçº¿ç¨‹ä»é˜Ÿåˆ—å–å‡ºå…ƒç´ ï¼ˆ10ä¸ªæ¡Œå­å¼€å§‹ä¾›é¥­ï¼‰
+		System.out.println("-----------------------------------å¼€é¥­äº†-----------------------------------");
 		long start = System.currentTimeMillis();
 		ExecutorService executorService = Executors.newFixedThreadPool(tableNum);
 		for (int i = 0; i < tableNum; i++) {
 			executorService.submit(new Dinner("00" + (i + 1), queue, count));
 		}
-		// ¼ÆÊıÆ÷µÈ´ı£¬ÖªµÀ¶ÓÁĞÎª¿Õ£¨ËùÓĞÈË³ÔÍê£©
+		// è®¡æ•°å™¨ç­‰å¾…ï¼ŒçŸ¥é“é˜Ÿåˆ—ä¸ºç©ºï¼ˆæ‰€æœ‰äººåƒå®Œï¼‰
 		count.await();
 		long time = System.currentTimeMillis() - start;
-		System.out.println("-----------------------------------ËùÓĞÈËÒÑ¾­³ÔÍê-----------------------------------");
-		System.out.println("¹²ºÄÊ±£º" + time);
-		// Í£Ö¹Ïß³Ì³Ø
+		System.out.println("-----------------------------------æ‰€æœ‰äººå·²ç»åƒå®Œ-----------------------------------");
+		System.out.println("å…±è€—æ—¶ï¼š" + time);
+		// åœæ­¢çº¿ç¨‹æ± 
 		executorService.shutdown();
 	}
 
@@ -57,10 +57,10 @@ public class ConcurrentLinkedQueueTest2 {
 		public void run() {
 			// while (queue.size() > 0){
 			while (!queue.isEmpty()) {
-				// ´Ó¶ÓÁĞÈ¡³öÒ»¸öÔªËØ ÅÅ¶ÓµÄÈËÉÙÒ»¸ö
-				System.out.println("¡¾" + queue.poll() + "¡¿----ÒÑ³ÔÍê...£¬ ·¹×À±àºÅ£º" + name);
+				// ä»é˜Ÿåˆ—å–å‡ºä¸€ä¸ªå…ƒç´  æ’é˜Ÿçš„äººå°‘ä¸€ä¸ª
+				System.out.println("ã€" + queue.poll() + "ã€‘----å·²åƒå®Œ...ï¼Œ é¥­æ¡Œç¼–å·ï¼š" + name);
 			}
-			count.countDown();// ¼ÆÊıÆ÷-1
+			count.countDown();// è®¡æ•°å™¨-1
 		}
 	}
 }

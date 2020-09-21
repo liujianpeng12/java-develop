@@ -20,18 +20,18 @@ public class MapDemo {
 
 	/**
 	 *HashMap:
-	 * 1�����ڹ�ϣ���� Map �ӿڵ�ʵ��:��������+����
-	 * 2������ʹ�� null ֵ�� null ��
-	 * 3����ȷ��˳��
-	 * 4����ͬ�ļ�ֵ����󸲸ǵķ�ʽ���д洢
-	 * 5��Ĭ�ϵ�����������С��16������������0.75
-	 * 6������Ĵ洢�㷨���Ȼ�ȡ�ö����hashCodeֵ����HashMap������ȡ���ֵΪ�ö���
-	 * 	�������е�λ�á�
-	 * 7�����Ҷ��󣬻�ȡ�ö����hashCodeֵ�Ե�ǰ����ȡ���ֵΪ�±꣬����ָ������λ��
-	 * �Ķ�����������ڶ༶�����У��������
-	 * 8����ϣ��������ɢ�У������������䣩�������ĺܴ�����ܣ�����Ҫ��������
-	 * 9������洢�Ķ���������Ԥ֪����ô����ʹ���Զ����ʼ�����ͼ������ӣ����ι�������
-	 * 10���̲߳���ȫ
+	 * 1、基于哈希表的 Map 接口的实现:对象数组+链表
+	 * 2、允许使用 null 值和 null 键
+	 * 3、不确定顺序
+	 * 4、相同的键值以最后覆盖的方式进行存储
+	 * 5、默认的数组容量大小是16，加载因子是0.75
+	 * 6、对象的存储算法：先获取该对象的hashCode值，对HashMap的容量取余的值为该对象
+	 * 	在数组中的位置。
+	 * 7、查找对象，获取该对象的hashCode值对当前容量取余的值为下标，查找指定数组位置
+	 * 的对象（如果对象在多级链表中，则遍历）
+	 * 8、哈希表的重新散列（数组重新扩充），会消耗很大的性能，所以要尽量避免
+	 * 9、如果存储的对象数量可预知，那么可以使用自定义初始容量和加载因子（带参构造器）
+	 * 10、线程不安全
 	 */
 	public static void hashMap(){
 		Map<Integer,String> m=new HashMap<Integer,String>();
@@ -43,24 +43,24 @@ public class MapDemo {
 			System.out.println(m.get(ite.next()));
 		}
 	}
-	
+
 	/**
 	 * Hashtable
-	 * ��HashMap����
-	 * ��������ֵΪnull
-	 * ��Ĭ�ϳ�ʼ��ʼ����11�ͼ�������0.75����һ���µĿչ�ϣ��
-	 * �̰߳�ȫ��,ͬ��
+	 * 与HashMap相似
+	 * 不允许键值为null
+	 * 用默认初始初始容量11和加载因子0.75构造一个新的空哈希表
+	 * 线程安全的,同步
 	 */
 	public static void hashtable(){
 		Hashtable<Integer,String> t=new Hashtable<Integer,String>();
 		t.put(1, "sew");
 	}
-	
+
 	/**
 	 * TreeMap
-	 * ���ڶ������еĺ����ʵ��,�������һ����ƽ������������
-	 * ʹ�ü�����Ȼ˳����һ���µġ��յ���ӳ��
-	 * ʹ���Զ��������ΪKEYֵʱ,�ö���Ӧʵ�� Comparable�ӿ�
+	 * 基于二叉树中的红黑树实现,红黑树是一个自平衡的排序二叉树
+	 * 使用键的自然顺序构造一个新的、空的树映射
+	 * 使用自定义对象作为KEY值时,该对象应实现 Comparable接口
 	 */
 	public static void treeMap(){
 		Map<Person,String> m=new TreeMap<Person,String>();
@@ -75,13 +75,13 @@ public class MapDemo {
 			System.out.println(en.getValue()+":"+en);
 		}
 	}
-	
+
 	/**
 	 *  LinkedHashMap:
-	 * ��HashMap������
-	 * ���п�Ԥ֪�ĵ���˳��
-	 * ��ʵ���� HashMap �Ĳ�֮ͬ�����ڣ�����ά����һ��������������Ŀ��˫�������б���
-	 * �������б������˵���˳�򣬸õ���˳��ͨ�����ǽ������뵽ӳ���е�˳�򣨲���˳�򣩡�
+	 * 是HashMap的子类
+	 * 具有可预知的迭代顺序。
+	 * 此实现与 HashMap 的不同之处在于，后者维护着一个运行于所有条目的双重链接列表。
+	 * 此链接列表定义了迭代顺序，该迭代顺序通常就是将键插入到映射中的顺序（插入顺序）。
 	 */
 	public static void linkedHashMap(){
 		Map<Person,String> m=new LinkedHashMap<Person,String>();
@@ -94,13 +94,13 @@ public class MapDemo {
 			System.out.println(s);
 		}
 	}
-	
+
 	public static void concurrentHashMap(){
 		ConcurrentHashMap<Person, String> map = new ConcurrentHashMap<>();
 		map.put( new Person(12,"aaa"),"ca");
 		map.put( new Person(23,"bbc"),"cb");
 		map.put( new Person(34,"yu"),"cc");
-		
+
 		Set<Entry<Person, String>> set = map.entrySet();
 		Iterator<Entry<Person, String>> it = set.iterator();
 		while(it.hasNext()){
