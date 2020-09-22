@@ -19,7 +19,7 @@ public class CreatingThread04 implements Callable<Long> {
         FutureTask<Long> task = new FutureTask<Long>(new CreatingThread04());
         new Thread(task).start();
         System.out.println("等待完成任务");
-        long result =   task.get();
+        long result = task.get();
         System.out.println("任务结果:" + result);
     }
 }
