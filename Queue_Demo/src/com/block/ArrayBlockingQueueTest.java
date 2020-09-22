@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ArrayBlockingQueueTest {
 
-    static ArrayBlockingQueue<Apple> queue = new ArrayBlockingQueue<>(10);
-	
+	static ArrayBlockingQueue<Apple> queue = new ArrayBlockingQueue<>(10);
+
 	public static void main(String[] args){
 		new Thread(new Producer(queue)).start();
 		new Thread(new Consumer(queue)).start();
@@ -29,9 +29,9 @@ class Producer implements Runnable {
 		while (true) {
 			try {
 				Apple apple = new Apple();
-				//½«ÔªËØ²åÈë´Ë¶ÓÁĞµÄÎ²²¿£¬Èç¹û¸Ã¶ÓÁĞÒÑÂú£¬ÔòÒ»Ö±×èÈû
+				//å°†å…ƒç´ æ’å…¥æ­¤é˜Ÿåˆ—çš„å°¾éƒ¨ï¼Œå¦‚æœè¯¥é˜Ÿåˆ—å·²æ»¡ï¼Œåˆ™ä¸€ç›´é˜»å¡
 				queue.put(apple);
-				System.out.println("Éú²úapple" + apple);
+				System.out.println("ç”Ÿäº§apple" + apple);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -51,9 +51,9 @@ class Consumer implements Runnable {
 		while(true){
 			try {
 				TimeUnit.MICROSECONDS.sleep(1000);
-				//»ñÈ¡²¢ÒÆ³ı´Ë¶ÓÁĞÍ·ÔªËØ£¬ÈôÃ»ÓĞÔªËØÔòÒ»Ö±×èÈû
+				//è·å–å¹¶ç§»é™¤æ­¤é˜Ÿåˆ—å¤´å…ƒç´ ï¼Œè‹¥æ²¡æœ‰å…ƒç´ åˆ™ä¸€ç›´é˜»å¡
 				Apple apple = queue.take();
-				System.out.println("Ïû·ÑApple:" + apple);
+				System.out.println("æ¶ˆè´¹Apple:" + apple);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
