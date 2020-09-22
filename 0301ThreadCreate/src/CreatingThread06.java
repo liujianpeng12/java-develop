@@ -2,7 +2,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 使用线程池的方式，可以复用线程，节约系统资源。
+ * @author liujp
+ * @create 2020-09-21 10:54
  */
 public class CreatingThread06 {
 
