@@ -1,5 +1,7 @@
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * LinkedHashMap内部维护了一个双向链表，能保证元素按插入的顺序访问，也能以访问顺序访问，可以用来实现LRU缓存策略。
@@ -18,7 +20,7 @@ import java.util.Map;
  */
 public class LinkedHasMapTest {
     public static void main(String[] args) {
-        Map<String , String> accessOrderFalse = new LinkedHashMap<>();
+        Map<String, String> accessOrderFalse = new LinkedHashMap<>();
         accessOrderFalse.put("1", "1");
         accessOrderFalse.put("2", "2");
         accessOrderFalse.put("3", "3");
@@ -33,5 +35,12 @@ public class LinkedHasMapTest {
         accessOrderTrue.get("2");
         accessOrderTrue.get("3");
         System.out.println("accessOrderTrue:" + accessOrderTrue.toString());
+
+
+        Set<Map.Entry<String, String>> set = accessOrderTrue.entrySet();
+        Iterator<Map.Entry<String, String>> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }

@@ -7,16 +7,16 @@ public class ThreadPoolDemo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//´´½¨Ò»¸öµ¥Ïß³ÌµÄÏß³Ì³Ø
+		//åˆ›å»ºä¸€ä¸ªå•çº¿ç¨‹çš„çº¿ç¨‹æ± 
 		//ExecutorService se=Executors.newSingleThreadExecutor();
-		
-		//´´½¨Ò»¸ö¹Ì¶¨´óĞ¡µÄÏß³Ì³Ø
+
+		//åˆ›å»ºä¸€ä¸ªå›ºå®šå¤§å°çš„çº¿ç¨‹æ± 
 		//ExecutorService se=Executors.newFixedThreadPool(2);
-		
-		//´´½¨Ò»¸ö¿É»º´æµÄÏß³Ì³Ø
+
+		//åˆ›å»ºä¸€ä¸ªå¯ç¼“å­˜çš„çº¿ç¨‹æ± 
 		//ExecutorService se=Executors.newCachedThreadPool();
-		
-		//´´½¨Ò»¸ö´óĞ¡ÎŞÏŞÖÆµÄÏß³Ì³Ø
+
+		//åˆ›å»ºä¸€ä¸ªå¤§å°æ— é™åˆ¶çš„çº¿ç¨‹æ± 
 		ExecutorService se=Executors.newScheduledThreadPool(2);
 		MyThread my=new MyThread();
 		MyThread my2=new MyThread();
@@ -39,5 +39,5 @@ class MyThread implements Runnable{
 			}
 		}
 	}
-	
+
 }
