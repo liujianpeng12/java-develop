@@ -30,6 +30,7 @@
   http://ifeve.com/java-io/
   http://ifeve.com/java-nio-all/
   https://www.cnblogs.com/tong-yuan/p/11845916.html
+  https://www.cnblogs.com/crazymakercircle/p/10225159.html
 
 05 socket
 
