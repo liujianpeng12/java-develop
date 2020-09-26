@@ -17,7 +17,7 @@ public class ReaderDemo {
 	}
 
 	private static void stringReader() {
-		File f = new File("D:\\JAVA\\text.txt");
+		File f = new File("D:\\Dev\\text.txt");
 		Reader reader;
 		try {
 			reader = new FileReader(f);
@@ -39,8 +39,8 @@ public class ReaderDemo {
 
 	private static void byteReader() {
 		try {
-			InputStream in = new FileInputStream("D:\\JAVA\\text.txt");
-			byte[] bytes = new byte[9];// ¬“¬Î
+			InputStream in = new FileInputStream("D:\\Dev\\text.txt");
+			byte[] bytes = new byte[9];// ‰π±Á†Å
 			int len = -1;
 			StringBuilder sb = new StringBuilder();
 			while ((len = in.read(bytes)) != -1) {

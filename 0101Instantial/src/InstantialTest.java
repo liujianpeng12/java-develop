@@ -55,11 +55,11 @@ public class InstantialTest {
     }
 
     private static User unserialize(User user1) throws Exception {
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D://object.txt"));
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:\\Dev\\object.txt"));
         oos.writeObject(user1);
         oos.close();
 
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D://object.txt"));
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\Dev\\object.txt"));
         // 反序列化
         User user5 = (User) ois.readObject();
         ois.close();

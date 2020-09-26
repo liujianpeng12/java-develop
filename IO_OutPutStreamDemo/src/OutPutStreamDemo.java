@@ -15,17 +15,17 @@ public class OutPutStreamDemo {
 
 	private static void testFileOutputStream(){
 		try {
-			OutputStream stream=new FileOutputStream("D:\\JAVA\\text.txt");
-			String str="Hellow FileOutputStream!ÎÄ¼şÊä³öÁ÷ÊÇÓÃÓÚ½«Êı¾İĞ´Èë";
+			OutputStream stream=new FileOutputStream("D:\\Dev\\text.txt");
+			String str="Hellow FileOutputStream!æ–‡ä»¶è¾“å‡ºæµæ˜¯ç”¨äºå°†æ•°æ®å†™å…¥";
 			byte[] b=str.getBytes();
-			
+
 			stream.write(b);
-			//for (int i = 0; i < b.length; i++) {
-			//	stream.write(b[i]);
-			//}
-			
+//			for (int i = 0; i < b.length; i++) {
+//				stream.write(b[i]);
+//			}
+
 			stream.close();
-			
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

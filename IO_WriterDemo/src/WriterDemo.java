@@ -12,7 +12,7 @@ public class WriterDemo {
 	private static void Writer() {
 		try {
 			Writer out = new FileWriter("D:\\JAVA\\text.txt", true);
-			String info="good good study,day day up!好好学习天天向上!";
+			String info="good good study,day day up!濂藉ソ瀛︿範澶╁ぉ鍚戜笂!";
 			//out.write(info.toCharArray());
 			out.write(info);
 			out.close();

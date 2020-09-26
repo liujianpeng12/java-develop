@@ -17,7 +17,7 @@ public class InputStreamDemo {
 
 	private static void testFileInputStream() {
 		try {
-			InputStream input = new FileInputStream("D:\\JAVA\\text.txt");
+			InputStream input = new FileInputStream("D:\\Dev\\Git.txt");
 			int b = -1;
 			while ((b = input.read()) != -1) {
 				// System.out.println(b);
@@ -33,10 +33,10 @@ public class InputStreamDemo {
 
 	private static void testFileInputStream2() {
 		try {
-			File file = new File("D:\\JAVA\\text.txt");
+			File file = new File("D:\\Dev\\Git.txt");
 			InputStream input = new FileInputStream(file);
 			byte[] bytes = new byte[(int) file.length()];
-			//ºÏÊÊ±È½ÏĞ¡ÎÄ¼ş
+			//åˆé€‚æ¯”è¾ƒå°æ–‡ä»¶
 			int len = input.read(bytes);
 			input.close();
 
@@ -52,15 +52,15 @@ public class InputStreamDemo {
 			e.printStackTrace();
 		}
 	}
-	
-	//Ã¿´Î¶ÁÈ¡Ö¸¶¨´óĞ¡µÄ×Ö½Ú
+
+	//æ¯æ¬¡è¯»å–æŒ‡å®šå¤§å°çš„å­—èŠ‚
 	private static void testFileInputStream3() {
 		try {
 			System.out.println("");
-			File file = new File("D:\\JAVA\\text.txt");
+			File file = new File("D:\\Dev\\Git.txt");
 			InputStream input = new FileInputStream(file);
-			byte[] bytes = new byte[7];//ºº×ÖÎª2¸ö×Ö½Ú,µ¥ÊıÊ±ÎªÂÒÂë
-			int len = -1;//Ã¿´Î¶ÁÈ¡µÄÊµ¼Ê³¤¶È
+			byte[] bytes = new byte[7];//æ±‰å­—ä¸º2ä¸ªå­—èŠ‚,å•æ•°æ—¶ä¸ºä¹±ç 
+			int len = -1;//æ¯æ¬¡è¯»å–çš„å®é™…é•¿åº¦
 			StringBuilder sb=new StringBuilder();
 			while((len=input.read(bytes))!=-1){
 				sb.append(new String(bytes, 0, len));
