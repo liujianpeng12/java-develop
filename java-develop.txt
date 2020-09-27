@@ -1,6 +1,18 @@
 
 综合参考: https://tech.meituan.com/
 
+Spring实现如下:
+java语言特性:反射　动态代理　枚举　泛型　注解　ＡＲＭ　Lambad语法
+设计思想: OOP IOC DDD TDD GOF23
+java API的封闭与简化: JDBC事务 Transactin Servlet
+JSR规范的适配与实现
+第三方框架的整合
+
+Spring核心特性:
+1.框架总览: 特性总览、版本特性、模块化设计、技术整合、编程模型
+
+需要方法指点迷津,需要经验来弯道超车,需要实践来巩固效果. 从功能特性到编程模型,从设计模式到技术规范,从理论基础到实战演练
+
 00 java多线
   https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=Mzg2ODA0ODM0Nw==&scene=1&album_id=1416811206647824387
   https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2ODA0ODM0Nw==&action=getalbum&album_id=1415038345180430336&scene=173#wechat_redirect
